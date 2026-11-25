@@ -1,309 +1,852 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vania Wyanet Tumbelaka Portfolio</title>
-<meta name="description" content="Portfolio of Vania Wyanet Tumbelaka, Computer Science and Statistics student at BINUS University.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
-<noscript><style>.filters{display:none}</style></noscript>
-<style>
-:root{
-  --bg:#fffaf5;--paper:#ffffff;--ink:#4a3341;--muted:#7f6676;--line:#f0d7e0;
-  --pink:#ffe3ec;--pink-deep:#f6bfd3;--yellow:#fff2c2;--yellow-deep:#ecd283;
-  --rose:#93426a;--gold:#6f5212;
-  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--yellow-deep);outline-offset:2px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.filters{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:baseline;border-top:1px solid var(--line);padding-top:22px;margin:0}
-.filters dt{font:700 .72rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
-.filters dd{margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chip,.tag{font:500 .82rem var(--sans);border:1px solid transparent;border-radius:3px;cursor:pointer;line-height:1.2}
-.chip{padding:6px 11px}
-.tool{background:var(--yellow);color:var(--gold);border-color:var(--yellow-deep)}
-.topic{background:var(--paper);color:var(--rose);border-color:var(--pink-deep)}
-.chip:hover,.tag:hover{filter:brightness(.97);border-color:var(--rose)}
-.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.chip.all{background:transparent;border-color:var(--ink);color:var(--ink)}
-.chip.all[aria-pressed=true]{background:var(--ink);color:#fff}
-.search{display:block;margin:0 0 22px}
-.search input{width:100%;max-width:420px;font:400 .95rem var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--pink-deep);border-radius:4px;padding:10px 14px}
-.search input::placeholder{color:var(--muted)}
-.search input:focus{outline:3px solid var(--yellow-deep);outline-offset:1px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.about .edu{margin-top:22px;padding-top:18px;border-top:1px solid var(--pink-deep)}
-.about .edu strong{display:block;font-weight:500}
-.about .edu span{color:var(--muted);font-size:.9rem}
-.hero{padding:64px 0 40px}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center}
-h1{font:500 clamp(2.4rem,6vw,4.1rem)/1.04 var(--serif);letter-spacing:-.015em;margin:0 0 14px}
-.lead{max-width:44ch;color:var(--muted);font-size:1.08rem;margin:0 0 26px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;font:500 .95rem var(--sans);padding:11px 20px;border-radius:4px;text-decoration:none;border:1px solid var(--ink)}
-.btn.primary{background:var(--ink);color:#fff}
-.btn.primary:hover{background:var(--rose);border-color:var(--rose)}
-.btn.ghost{background:var(--paper);color:var(--ink)}
-.btn.ghost:hover{background:var(--pink);border-color:var(--pink-deep)}
-.avatar{width:230px;height:230px;border-radius:50%;object-fit:cover;object-position:50% 8%;border:7px solid var(--pink);box-shadow:0 0 0 1px var(--pink-deep)}
-.stackbar{padding:4px 0 0}
-.status{margin:0;padding:14px 0 0;font-size:.85rem;color:var(--muted);min-height:2.2em}
-.about{margin-top:72px;background:var(--pink);border-top:1px solid var(--pink-deep);padding:52px 0 58px}
-.about-grid{display:grid;grid-template-columns:1.2fr 1.1fr .9fr;gap:48px}
-.about h2{display:block;border:0;padding:0;margin:0 0 16px;font:700 .72rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
-.about p{margin:0 0 16px;color:var(--ink)}
-.contact-lead{display:block;margin:0 0 16px;color:var(--ink);text-decoration:none;font:500 1.35rem/1.2 var(--serif)}.contact-lead:hover{color:var(--rose);text-decoration:underline}
-.timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:1px solid var(--pink-deep)}
-.timeline li{position:relative;padding:0 0 18px}
-.timeline li::before{content:"";position:absolute;left:-27px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--yellow-deep)}
-.timeline strong{display:block;font-weight:500}
-.timeline span{color:var(--muted);font-size:.88rem}
-@media (max-width:760px){.hero{padding-top:44px}.hero-grid{grid-template-columns:1fr;gap:28px}.avatar{order:-1;width:150px;height:150px}.about-grid{grid-template-columns:1fr;gap:34px}.filters{grid-template-columns:1fr}}
-main{padding:26px 0 0}
-.group{margin-top:44px}
-h2{display:flex;align-items:baseline;gap:14px;font:500 1.7rem/1.1 var(--serif);margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-h2 .num{font:500 .8rem var(--sans);color:var(--rose);letter-spacing:.1em}
-h2 .count{margin-left:auto;font:400 .82rem var(--sans);color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px 22px;padding:0;margin:0;list-style:none}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s}
-.card:hover{border-color:var(--pink-deep)}
-.card[hidden],.group[hidden]{display:none}
-.thumb{display:block;aspect-ratio:4/3;background:var(--pink);border-bottom:1px solid var(--line);overflow:hidden}
-.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .25s}
-.card:hover .thumb img{transform:scale(1.025)}
-.thumb.ph{display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;text-decoration:none}
-.thumb.ph span{font:500 1.5rem/1.15 var(--serif);color:var(--rose)}
-.group:nth-of-type(2) .thumb.ph{background:var(--yellow)}
-.group:nth-of-type(2) .thumb.ph span{color:var(--gold)}
-.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
-.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
-.type{font:700 .68rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{padding:3px 8px;font-size:.74rem}
-h3{font:500 1.22rem/1.22 var(--serif);margin:2px 0 0}
-h3 a{text-decoration:none}
-h3 a:hover{text-decoration:underline;text-decoration-color:var(--pink-deep);text-decoration-thickness:2px;text-underline-offset:3px}
-.body p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
-.links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:2px}
-.links a{font:500 .86rem var(--sans);color:var(--rose);text-decoration:underline;text-decoration-color:var(--pink-deep);text-underline-offset:3px}
-.links a::after{content:" \2197"}
-.links a:hover{text-decoration-color:var(--rose)}
-.empty{display:none;padding:40px 0;color:var(--muted)}
-footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vania Wyanet Tumbelaka Portfolio</title>
+  <meta name="description" content="Portfolio of Vania Wyanet Tumbelaka, Computer Science and Statistics student at BINUS University." />
+
+  <!-- Google Fonts: Preserving Original Fraunces + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fffaf5',
+            paper: '#ffffff',
+            ink: '#4a3341',
+            muted: '#7f6676',
+            line: '#f0d7e0',
+            blush: {
+              DEFAULT: '#ffe3ec',
+              deep: '#f6bfd3',
+              soft: '#fff1f5',
+            },
+            butter: {
+              DEFAULT: '#fff2c2',
+              deep: '#ecd283',
+            },
+            rose: '#93426a',
+            gold: '#6f5212',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 8px 30px -12px rgba(74, 51, 65, 0.08)',
+            card: '0 12px 32px -14px rgba(147, 66, 106, 0.14)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Alpine.js for Clean Reactive Interactivity -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #fffaf5;
+      --paper: #ffffff;
+      --ink: #4a3341;
+      --muted: #7f6676;
+      --line: #f0d7e0;
+      --pink: #ffe3ec;
+      --pink-deep: #f6bfd3;
+      --yellow: #fff2c2;
+      --yellow-deep: #ecd283;
+      --rose: #93426a;
+      --gold: #6f5212;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle editorial background dot grid in hero */
+    .hero-pattern {
+      background-image: radial-gradient(rgba(246, 191, 211, 0.45) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Custom focus ring matching original gold accent */
+    *:focus-visible {
+      outline: 3px solid var(--yellow-deep);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    /* Alpine cloak */
+    [x-cloak] { display: none !important; }
+
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--pink-deep);
+      border-radius: 999px;
+      border: 2px solid var(--bg);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--rose);
+    }
+
+    /* Line clamp fallback */
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
 </head>
-<body>
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Hey, I'm Vania.</h1>
-      <p class="lead">Computer Science and Statistics student at BINUS University. Here are my coursework and team projects in statistics, machine learning and design.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View projects</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">Get in touch</a>
+<body class="bg-cream text-ink selection:bg-blush selection:text-ink" x-data="portfolioApp()" x-init="init()">
+
+  <!-- =========================================================
+       STICKY NAVIGATION BAR
+  ========================================================== -->
+  <header
+    class="sticky top-0 z-40 transition-all duration-300 border-b"
+    :class="scrolled ? 'bg-cream/90 backdrop-blur-md border-line shadow-soft' : 'bg-cream/60 backdrop-blur-sm border-transparent'"
+  >
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <!-- Brand -->
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-full bg-blush border border-blush-deep flex items-center justify-center font-serif font-medium text-rose text-sm group-hover:bg-ink group-hover:text-white group-hover:border-ink transition-colors">
+          V
+        </span>
+        <span class="font-serif font-medium text-lg tracking-tight text-ink">
+          Vania Wyanet
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-muted" aria-label="Primary">
+        <a href="#projects" class="hover:text-rose transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-rose transition-colors">Skills</a>
+        <a href="#about" class="hover:text-rose transition-colors">About &amp; Experience</a>
+        <a href="#contact" class="hover:text-rose transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a
+          href="https://www.linkedin.com/in/vaniawyanet"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-ink text-white text-sm font-medium hover:bg-rose transition-colors"
+        >
+          <span>LinkedIn</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+
+        <button
+          type="button"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden p-2 rounded-lg border border-line bg-paper text-ink hover:bg-blush transition-colors"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Toggle navigation menu"
+        >
+          <i data-lucide="menu" class="w-5 h-5" x-show="!mobileMenuOpen"></i>
+          <i data-lucide="x" class="w-5 h-5" x-show="mobileMenuOpen" x-cloak></i>
+        </button>
       </div>
     </div>
-    <img class="avatar" src="assets/vania.jpg" alt="Portrait of Vania Wyanet Tumbelaka" width="220" height="220">
-  </div>
-</header>
-<section class="stackbar" id="projects"><div class="wrap">
-  <label class="search"><span class="sr">Search projects</span><input type="search" id="q" placeholder="Search projects, tools, topics" autocomplete="off"></label>
-  <dl class="filters" aria-label="Filter projects">
-    <dt>Browse</dt><dd><button type="button" class="chip all" data-filter="all" aria-pressed="true">All</button></dd>
-    <dt>Tech stack</dt><dd><button type="button" class="chip tool" data-filter="laravel" aria-pressed="false">Laravel</button><button type="button" class="chip tool" data-filter="figma" aria-pressed="false">Figma</button><button type="button" class="chip tool" data-filter="python" aria-pressed="false">Python</button><button type="button" class="chip tool" data-filter="r" aria-pressed="false">R</button></dd>
-    <dt>Topics</dt><dd><button type="button" class="chip topic" data-filter="web-app" aria-pressed="false">Web app</button><button type="button" class="chip topic" data-filter="ui-ux" aria-pressed="false">UI/UX</button><button type="button" class="chip topic" data-filter="linear-algebra" aria-pressed="false">Linear algebra</button><button type="button" class="chip topic" data-filter="machine-learning" aria-pressed="false">Machine learning</button><button type="button" class="chip topic" data-filter="deep-learning" aria-pressed="false">Deep learning</button><button type="button" class="chip topic" data-filter="forecasting" aria-pressed="false">Forecasting</button><button type="button" class="chip topic" data-filter="regression" aria-pressed="false">Regression</button><button type="button" class="chip topic" data-filter="multivariate-analysis" aria-pressed="false">Multivariate analysis</button></dd>
-  </dl>
-  <p class="status" id="status" aria-live="polite"></p>
-</div></section>
-<div class="wrap">
-<main>
-<section class="group">
-<h2><span class="num">01</span>Design and web projects<span class="count"></span></h2>
-<ul class="grid">
-  <li class="card" data-tags="laravel web-app">
-    <a class="thumb ph" href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>NyarisBaru</span></a>
-    <div class="body">
-      <div class="meta"><span class="type">GitHub</span><span class="tags"><button type="button" class="tag tool" data-filter="laravel">Laravel</button><button type="button" class="tag topic" data-filter="web-app">Web app</button></span></div>
-      <h3><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">NyarisBaru</a></h3>
-      <p>A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.</p>
-      <div class="links"><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">GitHub repository</a></div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div
+      x-show="mobileMenuOpen"
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 -translate-y-2"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100 translate-y-0"
+      x-transition:leave-end="opacity-0 -translate-y-2"
+      x-cloak
+      class="md:hidden bg-paper border-b border-line px-5 py-4 space-y-2 shadow-soft"
+    >
+      <a href="#projects" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Projects</a>
+      <a href="#skills" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Skills</a>
+      <a href="#about" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">About &amp; Experience</a>
+      <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Contact</a>
+      <div class="pt-2 border-t border-line">
+        <a
+          href="https://www.linkedin.com/in/vaniawyanet"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-ink text-white text-sm font-medium hover:bg-rose transition-colors"
+        >
+          <span>Connect on LinkedIn</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
     </div>
-  </li>
-  <li class="card" data-tags="figma ui-ux">
-    <a class="thumb ph" href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Pawfect</span></a>
-    <div class="body">
-      <div class="meta"><span class="type">Figma</span><span class="tags"><button type="button" class="tag tool" data-filter="figma">Figma</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button></span></div>
-      <h3><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Pawfect</a></h3>
-      <p>An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.</p>
-      <div class="links"><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/abgailhlm/Pawfect" target="_blank" rel="noopener">GitHub repository</a></div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden hero-pattern border-b border-line">
+    <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blush/60 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-butter/50 blur-3xl"></div>
+    <div class="relative max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div class="lg:col-span-7 order-2 lg:order-1" data-aos="fade-up" data-aos-duration="650">
+          <h1 class="font-serif font-medium text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.08] tracking-tight text-ink mb-5">Hey, I'm Vania<span class="text-rose">.</span></h1>
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-2xl mb-8">
+            I'm a Computer Science and Statistics student at <strong class="font-medium text-ink">BINUS University</strong>. This is a collection of my coursework and team projects in statistics, machine learning and design.
+          </p>
+          <div class="flex flex-wrap items-center gap-3.5">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-ink text-white text-sm font-medium hover:bg-rose transition-all shadow-sm hover:-translate-y-0.5"><span>View projects</span><i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+            <a href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-paper border border-ink/25 text-ink text-sm font-medium hover:bg-blush hover:border-blush-deep transition-all"><i data-lucide="linkedin" class="w-4 h-4 text-rose"></i><span>Get in touch</span></a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="700">
+          <div class="relative">
+            <div class="absolute -inset-3 rounded-[2rem] bg-blush border border-blush-deep -rotate-3"></div>
+            <div class="absolute -bottom-3 -right-3 w-24 h-24 rounded-2xl bg-butter border border-butter-deep rotate-6"></div>
+            <div class="relative bg-paper p-3 rounded-[1.75rem] border border-line shadow-card w-60 sm:w-72">
+              <div class="aspect-square rounded-[1.25rem] overflow-hidden bg-blush-soft border border-line">
+                <img src="assets/vania.jpg" alt="Portrait of Vania Wyanet Tumbelaka" class="w-full h-full object-cover object-top" loading="eager" />
+              </div>
+              <div class="pt-3.5 pb-1 px-1">
+                <p class="text-xs font-semibold uppercase tracking-wider text-rose">BINUS University</p>
+                <p class="text-xs text-muted">Computer Science and Statistics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </li>
-  <li class="card" data-tags="figma ui-ux web-app">
-    <a class="thumb" href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/jci-drone-store.jpg" alt="Preview of JCI Drone Store" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">Figma + live site</span><span class="tags"><button type="button" class="tag tool" data-filter="figma">Figma</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button><button type="button" class="tag topic" data-filter="web-app">Web app</button></span></div>
-      <h3><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">JCI Drone Store</a></h3>
-      <p>A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.</p>
-      <div class="links"><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="jci/home.html" target="_blank" rel="noopener">Live website</a></div>
+  </section>
+
+  <!-- =========================================================
+       PROJECTS & RESEARCH SHOWCASE (INTERACTIVE)
+  ========================================================== -->
+  <section id="projects" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8" data-aos="fade-up">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Projects</p>
+        <h2 class="font-serif font-medium text-3xl sm:text-4xl text-ink tracking-tight">
+          Projects &amp; Research Papers
+        </h2>
+      </div>
+      <p class="text-sm text-muted max-w-md">
+        Filter by category or tech stack, or search by keyword. Each card opens the project itself.
+      </p>
     </div>
-  </li>
-  <li class="card" data-tags="python ui-ux web-app linear-algebra">
-    <a class="thumb" href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/matrix-calculator-documentation.jpg" alt="Preview of Matrix Calculator" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF + Figma + GitHub</span><span class="tags"><button type="button" class="tag tool" data-filter="python">Python</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button><button type="button" class="tag topic" data-filter="web-app">Web app</button><button type="button" class="tag topic" data-filter="linear-algebra">Linear algebra</button></span></div>
-      <h3><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Matrix Calculator</a></h3>
-      <p>A web app for linear algebra: diagonalization, LU decomposition (Crout&#x27;s method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.</p>
-      <div class="links"><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Documentation (PDF)</a><a href="https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/DavinTanaya/MatrixCalculator" target="_blank" rel="noopener">GitHub repository</a></div>
+
+    <!-- Interactive Filter & Search Panel -->
+    <div class="bg-paper rounded-2xl border border-line p-4 sm:p-5 shadow-soft mb-8 space-y-4" data-aos="fade-up" data-aos-delay="50">
+      <!-- Top Row: Category Tabs + Search Input -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+          <template x-for="cat in categories" :key="cat.id">
+            <button
+              type="button"
+              role="tab"
+              :aria-selected="activeCategory === cat.id"
+              @click="activeCategory = cat.id"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all border"
+              :class="activeCategory === cat.id
+                ? 'bg-ink text-white border-ink shadow-sm'
+                : 'bg-cream/70 text-ink border-line hover:bg-blush/60 hover:border-blush-deep'"
+            >
+              <span x-text="cat.label"></span>
+              <span
+                class="text-[11px] px-1.5 py-0.5 rounded-md"
+                :class="activeCategory === cat.id ? 'bg-white/20 text-white' : 'bg-paper text-muted'"
+                x-text="countByCategory(cat.id)"
+              ></span>
+            </button>
+          </template>
+        </div>
+
+        <!-- Search Box -->
+        <div class="relative w-full lg:w-72">
+          <i data-lucide="search" class="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input
+            type="text"
+            x-model="searchQuery"
+            placeholder="Search projects, tools, topics..."
+            aria-label="Search projects"
+            class="w-full pl-10 pr-9 py-2 rounded-xl bg-cream border border-line text-sm text-ink placeholder:text-muted/70 focus:bg-paper focus:border-blush-deep transition-colors"
+          />
+          <button
+            type="button"
+            x-show="searchQuery.length > 0"
+            @click="searchQuery = ''"
+            class="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted hover:text-rose p-1"
+            aria-label="Clear search"
+          >
+            <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Tech Stack Chips + Reset -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-line/80">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-[11px] font-bold uppercase tracking-[0.12em] text-rose mr-1">Tech Stack:</span>
+          <template x-for="tool in toolsList" :key="tool">
+            <button
+              type="button"
+              @click="toggleTool(tool)"
+              :aria-pressed="activeTool === tool"
+              class="px-3 py-1 rounded-lg text-xs font-medium border transition-all"
+              :class="activeTool === tool
+                ? 'bg-ink text-white border-ink'
+                : 'bg-butter text-gold border-butter-deep hover:brightness-95'"
+              x-text="tool"
+            ></button>
+          </template>
+        </div>
+
+        <div class="flex items-center gap-3 text-xs text-muted">
+          <span aria-live="polite">
+            Showing <strong class="text-ink" x-text="filteredProjects.length"></strong> of <span x-text="projects.length"></span> items
+          </span>
+          <button
+            type="button"
+            x-show="activeCategory !== 'all' || activeTool !== null || searchQuery.trim() !== ''"
+            @click="resetFilters()"
+            class="inline-flex items-center gap-1 text-rose font-medium hover:underline"
+          >
+            <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
-  </li>
-</ul>
-</section>
-<section class="group">
-<h2><span class="num">02</span>Machine learning<span class="count"></span></h2>
-<ul class="grid">
-  <li class="card" data-tags="machine-learning">
-    <a class="thumb ph" href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Student Depression Prediction</span></a>
-    <div class="body">
-      <div class="meta"><span class="type">Colab + poster</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button></span></div>
-      <h3><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Student Depression Prediction</a></h3>
-      <p>Group machine learning project (Group 7, class LA06) built on the public Student Depression dataset from Kaggle. Delivered as a Colab notebook and a Canva poster.</p>
-      <div class="links"><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Colab notebook</a><a href="https://www.canva.com/design/DAGqCtZGcnM/I14SCtwnrMOp7cDT0feb3w/view" target="_blank" rel="noopener">Poster</a><a href="https://www.kaggle.com/datasets/hopesb/student-depression-dataset" target="_blank" rel="noopener">Dataset</a></div>
+
+    <!-- Empty State -->
+    <div
+      x-show="filteredProjects.length === 0"
+      x-cloak
+      class="bg-paper rounded-2xl border border-line p-12 text-center"
+    >
+      <div class="w-12 h-12 rounded-2xl bg-blush text-rose mx-auto flex items-center justify-center mb-3">
+        <i data-lucide="folder-search" class="w-6 h-6"></i>
+      </div>
+      <h3 class="font-serif text-xl text-ink mb-1">No matching projects found</h3>
+      <p class="text-sm text-muted mb-5">Try clearing your search keyword or switching to another category.</p>
+      <button
+        type="button"
+        @click="resetFilters()"
+        class="px-4 py-2 rounded-xl bg-ink text-white text-sm font-medium hover:bg-rose transition-colors"
+      >
+        Show all projects
+      </button>
     </div>
-  </li>
-  <li class="card" data-tags="machine-learning python">
-    <a class="thumb" href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/maternal-health-risk-ml.jpg" alt="Preview of Machine Learning for Maternal Health Risk Prediction" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button><button type="button" class="tag tool" data-filter="python">Python</button></span></div>
-      <h3><a href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener">Machine Learning for Maternal Health Risk Prediction</a></h3>
-      <p>Group paper (Computational Biology) comparing nine classifiers on a public maternal health risk dataset, with exploratory analysis of blood pressure, blood sugar and class imbalance. Tree-based ensembles performed best.</p>
-      
+
+    <!-- Responsive Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" x-show="filteredProjects.length > 0">
+      <template x-for="project in filteredProjects" :key="project.id">
+        <article
+          class="group bg-paper rounded-2xl border border-line hover:border-blush-deep shadow-soft hover:shadow-card transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1"
+        >
+          <!-- Thumbnail (opens the project) -->
+          <a :href="project.main" target="_blank" rel="noopener noreferrer" tabindex="-1" class="relative w-full aspect-[4/3] overflow-hidden border-b border-line block" :aria-label="'Open ' + project.title">
+            <template x-if="project.thumb">
+              <img :src="project.thumb" :alt="'Preview of ' + project.title" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+            </template>
+            <template x-if="!project.thumb">
+              <div class="w-full h-full p-6 flex flex-col justify-end transition-transform duration-500 group-hover:scale-[1.02]" :class="project.tone === 'yellow' ? 'bg-butter text-gold' : 'bg-blush text-rose'">
+                <p class="font-serif text-xl sm:text-2xl font-medium leading-snug" x-text="project.title"></p>
+              </div>
+            </template>
+            <span class="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-paper/95 text-ink border border-line shadow-sm" x-text="project.type"></span>
+          </a>
+
+          <!-- Card Body -->
+          <div class="p-5 flex flex-col flex-1">
+            <!-- Category eyebrow -->
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-[11px] font-bold uppercase tracking-[0.1em] text-rose" x-text="project.categoryLabel"></span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-serif font-medium text-lg leading-snug text-ink mb-2 group-hover:text-rose transition-colors">
+              <a :href="project.main" target="_blank" rel="noopener noreferrer" class="hover:underline decoration-blush-deep underline-offset-4" x-text="project.title"></a>
+            </h3>
+
+            <!-- Concise Description -->
+            <p class="text-sm text-muted leading-relaxed mb-4" x-text="project.summary"></p>
+
+            <!-- Tags (Tools in Butter Yellow, Topics in Soft Pink Outline) -->
+            <div class="flex flex-wrap gap-1.5 mt-auto mb-4">
+              <template x-for="tool in project.tools" :key="tool">
+                <button
+                  type="button"
+                  @click="toggleTool(tool)"
+                  class="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-butter text-gold border border-butter-deep hover:brightness-95 transition"
+                  x-text="tool"
+                ></button>
+              </template>
+              <template x-for="topic in project.topics" :key="topic">
+                <span
+                  class="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-paper text-rose border border-blush-deep"
+                  x-text="topic"
+                ></span>
+              </template>
+            </div>
+
+            <!-- Links -->
+            <div class="pt-3.5 border-t border-line flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <template x-for="link in project.links" :key="link.url">
+                <a :href="link.url" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-rose hover:text-ink underline decoration-blush-deep underline-offset-4 transition-colors"><span x-text="link.label"></span><span aria-hidden="true">↗</span></a>
+              </template>
+            </div>
+          </div>
+        </article>
+      </template>
     </div>
-  </li>
-  <li class="card" data-tags="machine-learning r">
-    <a class="thumb" href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/online-shoppers-purchase-intention.jpg" alt="Preview of Predicting Online Shoppers&#x27; Purchase Intention in R" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
-      <h3><a href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener">Predicting Online Shoppers&#x27; Purchase Intention in R</a></h3>
-      <p>Exploratory analysis and six classifiers (decision tree, random forest, SVM, naive Bayes, KNN, logistic regression) on 12,330 shopping sessions, with business recommendations. Random forest was the most accurate at 90.4%.</p>
-      
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="bg-paper border-y border-line">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+      <div class="max-w-2xl mb-10" data-aos="fade-up">
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Toolkit</p>
+        <h2 class="font-serif font-medium text-3xl sm:text-4xl text-ink tracking-tight mb-3">Skills</h2>
+        <p class="text-sm sm:text-base text-muted">Only what I used in the projects above.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-cream border border-line p-6 hover:border-blush-deep transition-colors" data-aos="fade-up" data-aos-delay="50">
+          <div class="w-10 h-10 rounded-xl bg-butter border border-butter-deep text-gold flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+          <h3 class="font-serif text-xl font-medium text-ink mb-3">Statistics</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">R</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Python</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">OLS with HC3 errors</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">Ordinal logistic regression</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">Robust CCA</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">ARIMA, SARIMA, ETS</span>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-cream border border-line p-6 hover:border-blush-deep transition-colors" data-aos="fade-up" data-aos-delay="120">
+          <div class="w-10 h-10 rounded-xl bg-blush border border-blush-deep text-rose flex items-center justify-center mb-4"><i data-lucide="brain-circuit" class="w-5 h-5"></i></div>
+          <h3 class="font-serif text-xl font-medium text-ink mb-3">Machine learning</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Python</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">R</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Google Colab</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">Classification</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">Random forest</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">LSTM, GRU</span>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-cream border border-line p-6 hover:border-blush-deep transition-colors" data-aos="fade-up" data-aos-delay="190">
+          <div class="w-10 h-10 rounded-xl bg-blush border border-blush-deep text-rose flex items-center justify-center mb-4"><i data-lucide="layout-template" class="w-5 h-5"></i></div>
+          <h3 class="font-serif text-xl font-medium text-ink mb-3">Web and design</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Figma</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Laravel</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">HTML, CSS, JavaScript</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">UML</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </li>
-</ul>
-</section>
-<section class="group">
-<h2><span class="num">03</span>Research papers<span class="count"></span></h2>
-<ul class="grid">
-  <li class="card" data-tags="forecasting deep-learning python r">
-    <a class="thumb" href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/air-quality-forecasting.jpg" alt="Preview of Forecasting Jakarta&#x27;s Daily Air Quality" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="forecasting">Forecasting</button><button type="button" class="tag topic" data-filter="deep-learning">Deep learning</button><button type="button" class="tag tool" data-filter="python">Python</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
-      <h3><a href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener">Forecasting Jakarta&#x27;s Daily Air Quality</a></h3>
-      <p>ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.</p>
-      
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-blush/70 border-b border-blush-deep">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div class="lg:col-span-5 space-y-6" data-aos="fade-up">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Background</p>
+            <h2 class="font-serif font-medium text-3xl text-ink tracking-tight mb-4">About</h2>
+            <p class="text-sm sm:text-base text-ink/85 leading-relaxed">I'm a Computer Science and Statistics student at BINUS University. My coursework spans statistics, machine learning and web and interface design, and most of the work here was done in teams.</p>
+          </div>
+          <div class="bg-paper/90 rounded-2xl border border-blush-deep/80 p-5 shadow-soft">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-butter border border-butter-deep text-gold flex items-center justify-center shrink-0"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+              <div>
+                <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-rose">Education</p>
+                <h3 class="font-serif text-lg font-medium text-ink">BINUS University</h3>
+                <p class="text-sm text-muted">Computer Science and Statistics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Campus</p>
+          <h2 class="font-serif font-medium text-3xl text-ink tracking-tight mb-6">Experience</h2>
+          <div class="bg-paper/90 rounded-2xl border border-blush-deep/80 p-6 sm:p-7 shadow-soft">
+            <ol class="relative border-l-2 border-blush-deep ml-2.5 space-y-6">
+              <li class="pl-6 relative"><span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-butter border-2 border-butter-deep"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2"><h3 class="font-medium text-ink text-base">Head of Education and Technology</h3><span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blush text-rose">2025 / 2026</span></div>
+                <p class="text-sm font-medium text-rose mt-0.5">HIMSTAT</p></li>
+              <li class="pl-6 relative"><span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-butter border-2 border-butter-deep"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2"><h3 class="font-medium text-ink text-base">Treasurer</h3><span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blush text-rose">2025</span></div>
+                <p class="text-sm font-medium text-rose mt-0.5">MATIC</p></li>
+              <li class="pl-6 relative"><span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-butter border-2 border-butter-deep"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2"><h3 class="font-medium text-ink text-base">Freshmen Leader</h3><span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blush text-rose">Jul to Sep 2024</span></div>
+                <p class="text-sm font-medium text-rose mt-0.5">FYP B28, BINUS University</p></li>
+              <li class="pl-6 relative"><span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-butter border-2 border-butter-deep"></span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2"><h3 class="font-medium text-ink text-base">Freshmen Partner</h3></div>
+                <p class="text-sm font-medium text-rose mt-0.5">BINUS University</p></li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
-  </li>
-  <li class="card" data-tags="multivariate-analysis r">
-    <a class="thumb" href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/robust-canonical-correlation.jpg" alt="Preview of Robust Canonical Correlation: Social Media Use and Self-Esteem" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="multivariate-analysis">Multivariate analysis</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
-      <h3><a href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener">Robust Canonical Correlation: Social Media Use and Self-Esteem</a></h3>
-      <p>Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.</p>
-      
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+    <div class="bg-paper rounded-3xl border border-line p-8 sm:p-12 shadow-soft relative overflow-hidden" data-aos="fade-up">
+      <div class="pointer-events-none absolute -right-16 -top-16 w-56 h-56 rounded-full bg-blush/60 blur-2xl"></div>
+      <div class="pointer-events-none absolute -left-12 -bottom-16 w-48 h-48 rounded-full bg-butter/60 blur-2xl"></div>
+      <div class="relative flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Contact</p>
+          <h2 class="font-serif font-medium text-3xl sm:text-4xl text-ink tracking-tight">Let's connect</h2>
+        </div>
+        <a href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-ink text-white text-sm font-medium hover:bg-rose transition-all shadow-sm hover:-translate-y-0.5"><i data-lucide="linkedin" class="w-4 h-4"></i><span>Message me on LinkedIn</span><i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+      </div>
     </div>
-  </li>
-  <li class="card" data-tags="regression r">
-    <a class="thumb" href="papers/study-hours-regression.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/study-hours-regression.jpg" alt="Preview of Heteroskedasticity-Robust Regression on Students&#x27; Study Hours" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="regression">Regression</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
-      <h3><a href="papers/study-hours-regression.pdf" target="_blank" rel="noopener">Heteroskedasticity-Robust Regression on Students&#x27; Study Hours</a></h3>
-      <p>Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.</p>
-      
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-muted">
+      <p>Team projects are credited to their authors in each paper.</p>
+      <a href="#top" class="inline-flex items-center gap-1.5 text-rose hover:text-ink font-medium transition-colors"><span>Back to top</span><i data-lucide="arrow-up" class="w-3.5 h-3.5"></i></a>
     </div>
-  </li>
-  <li class="card" data-tags="regression r">
-    <a class="thumb" href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/uk-road-accident-severity.jpg" alt="Preview of Road Accident Severity in the UK" loading="lazy" width="640" height="480"></a>
-    <div class="body">
-      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="regression">Regression</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
-      <h3><a href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener">Road Accident Severity in the UK</a></h3>
-      <p>Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.</p>
-      
-    </div>
-  </li>
-</ul>
-</section>
-<p class="empty" id="empty">Nothing here yet.</p>
-</main>
-</div>
-<section class="about" id="about"><div class="wrap about-grid">
-  <div>
-    <h2>About</h2>
-    <p>I'm a Computer Science and Statistics student at BINUS University. My coursework spans statistics, machine learning and web and interface design, and most of the work here was done in teams.</p>
-    <p class="edu"><strong>BINUS University</strong><span>Computer Science and Statistics</span></p>
-  </div>
-  <div>
-    <h2>Experience</h2>
-    <ul class="timeline">
-      <li><strong>Head of Education and Technology</strong><span>HIMSTAT, 2025/2026</span></li>
-      <li><strong>Treasurer</strong><span>MATIC, 2025</span></li>
-      <li><strong>Freshmen Leader</strong><span>FYP B28, Jul–Sep 2024</span></li>
-      <li><strong>Freshmen Partner</strong><span>BINUS University</span></li>
-    </ul>
-  </div>
-  <div id="contact">
-    <h2>Contact</h2>
-    <a class="contact-lead" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">Let's connect</a>
-    <a class="btn primary" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">Message me on LinkedIn</a>
-  </div>
-</div></section>
-<footer><div class="wrap">Team projects are credited to their authors in each paper.</div></footer>
-<script>
-(function(){
-  var cards=[].slice.call(document.querySelectorAll('.card')),
-      groups=[].slice.call(document.querySelectorAll('.group')),
-      chips=[].slice.call(document.querySelectorAll('.chip')),
-      status=document.getElementById('status'),
-      labels={};
-  chips.forEach(function(c){labels[c.dataset.filter]=c.textContent});
-  var qEl=document.getElementById('q'),cur='all';
-  cards.forEach(function(c){c.dataset.text=(c.textContent+' '+c.dataset.tags).toLowerCase()});
-  function apply(f){
-    cur=f;
-    var q=qEl.value.trim().toLowerCase(),shown=0;
-    cards.forEach(function(c){
-      var ok=(f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1)&&(!q||c.dataset.text.indexOf(q)>-1);
-      c.hidden=!ok; if(ok)shown++;
-    });
-    groups.forEach(function(g){
-      var n=g.querySelectorAll('.card:not([hidden])').length;
-      g.hidden=n===0;
-      g.querySelector('.count').textContent=(f==='all'&&!q)?'':n+(n===1?' item':' items');
-    });
-    chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.filter===f))});
-    var t='Showing '+(f==='all'&&!q?'all '+cards.length:shown+' of '+cards.length)+' items';
-    if(f!=='all')t+=' tagged '+labels[f];
-    if(q)t+=' matching \u201c'+qEl.value.trim()+'\u201d';
-    status.textContent=shown?t+'.':'No projects match. Clear the search or pick another tag.';
-    try{history.replaceState(null,'',f==='all'?location.pathname:'#'+f)}catch(e){}
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    function portfolioApp() {
+      return {
+        scrolled: false, mobileMenuOpen: false, activeCategory: 'all', activeTool: null, searchQuery: '',
+        categories: [{id:'all',label:'All'},{id:'design-web',label:'Design & Web'},{id:'ml',label:'Machine Learning'},{id:'research',label:'Research Papers'}],
+        toolsList: ['Laravel','Figma','Python','R'],
+        projects: [
+  {
+    "id": 0,
+    "category": "design-web",
+    "categoryLabel": "Design & Web",
+    "type": "GitHub",
+    "title": "NyarisBaru",
+    "main": "https://github.com/Ivanajoy2207/nyarisbaru",
+    "thumb": null,
+    "tone": "pink",
+    "summary": "A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.",
+    "tools": [
+      "Laravel"
+    ],
+    "topics": [
+      "Web app"
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/Ivanajoy2207/nyarisbaru"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "category": "design-web",
+    "categoryLabel": "Design & Web",
+    "type": "Figma",
+    "title": "Pawfect",
+    "main": "https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&t=9YQl2xW93F2stTyJ-6",
+    "thumb": null,
+    "tone": "pink",
+    "summary": "An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.",
+    "tools": [
+      "Figma"
+    ],
+    "topics": [
+      "UI/UX"
+    ],
+    "links": [
+      {
+        "label": "Figma design",
+        "url": "https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&t=9YQl2xW93F2stTyJ-6"
+      },
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/abgailhlm/Pawfect"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "design-web",
+    "categoryLabel": "Design & Web",
+    "type": "Figma + live site",
+    "title": "JCI Drone Store",
+    "main": "https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&t=9YQl2xW93F2stTyJ-6",
+    "thumb": "thumbs/jci-drone-store.jpg",
+    "tone": "pink",
+    "summary": "A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.",
+    "tools": [
+      "Figma"
+    ],
+    "topics": [
+      "UI/UX",
+      "Web app"
+    ],
+    "links": [
+      {
+        "label": "Figma design",
+        "url": "https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&t=9YQl2xW93F2stTyJ-6"
+      },
+      {
+        "label": "Live website",
+        "url": "jci/home.html"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "design-web",
+    "categoryLabel": "Design & Web",
+    "type": "PDF + Figma + GitHub",
+    "title": "Matrix Calculator",
+    "main": "papers/matrix-calculator-documentation.pdf",
+    "thumb": "thumbs/matrix-calculator-documentation.jpg",
+    "tone": "pink",
+    "summary": "A web app for linear algebra: diagonalization, LU decomposition (Crout's method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.",
+    "tools": [
+      "Python"
+    ],
+    "topics": [
+      "UI/UX",
+      "Web app",
+      "Linear algebra"
+    ],
+    "links": [
+      {
+        "label": "Documentation (PDF)",
+        "url": "papers/matrix-calculator-documentation.pdf"
+      },
+      {
+        "label": "Figma design",
+        "url": "https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1"
+      },
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/DavinTanaya/MatrixCalculator"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "ml",
+    "categoryLabel": "Machine Learning",
+    "type": "Colab + poster",
+    "title": "Student Depression Prediction",
+    "main": "https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing",
+    "thumb": null,
+    "tone": "yellow",
+    "summary": "Group machine learning project (Group 7, class LA06) built on the public Student Depression dataset from Kaggle. Delivered as a Colab notebook and a Canva poster.",
+    "tools": [],
+    "topics": [
+      "Machine learning"
+    ],
+    "links": [
+      {
+        "label": "Colab notebook",
+        "url": "https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing"
+      },
+      {
+        "label": "Poster",
+        "url": "https://www.canva.com/design/DAGqCtZGcnM/I14SCtwnrMOp7cDT0feb3w/view"
+      },
+      {
+        "label": "Dataset",
+        "url": "https://www.kaggle.com/datasets/hopesb/student-depression-dataset"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "ml",
+    "categoryLabel": "Machine Learning",
+    "type": "PDF",
+    "title": "Machine Learning for Maternal Health Risk Prediction",
+    "main": "papers/maternal-health-risk-ml.pdf",
+    "thumb": "thumbs/maternal-health-risk-ml.jpg",
+    "tone": "yellow",
+    "summary": "Group paper (Computational Biology) comparing nine classifiers on a public maternal health risk dataset, with exploratory analysis of blood pressure, blood sugar and class imbalance. Tree-based ensembles performed best.",
+    "tools": [
+      "Python"
+    ],
+    "topics": [
+      "Machine learning"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/maternal-health-risk-ml.pdf"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "ml",
+    "categoryLabel": "Machine Learning",
+    "type": "PDF",
+    "title": "Predicting Online Shoppers' Purchase Intention in R",
+    "main": "papers/online-shoppers-purchase-intention.pdf",
+    "thumb": "thumbs/online-shoppers-purchase-intention.jpg",
+    "tone": "yellow",
+    "summary": "Exploratory analysis and six classifiers (decision tree, random forest, SVM, naive Bayes, KNN, logistic regression) on 12,330 shopping sessions, with business recommendations. Random forest was the most accurate at 90.4%.",
+    "tools": [
+      "R"
+    ],
+    "topics": [
+      "Machine learning"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/online-shoppers-purchase-intention.pdf"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "research",
+    "categoryLabel": "Research Paper",
+    "type": "PDF",
+    "title": "Forecasting Jakarta's Daily Air Quality",
+    "main": "papers/air-quality-forecasting.pdf",
+    "thumb": "thumbs/air-quality-forecasting.jpg",
+    "tone": "pink",
+    "summary": "ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.",
+    "tools": [
+      "Python",
+      "R"
+    ],
+    "topics": [
+      "Forecasting",
+      "Deep learning"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/air-quality-forecasting.pdf"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "research",
+    "categoryLabel": "Research Paper",
+    "type": "PDF",
+    "title": "Robust Canonical Correlation: Social Media Use and Self-Esteem",
+    "main": "papers/robust-canonical-correlation.pdf",
+    "thumb": "thumbs/robust-canonical-correlation.jpg",
+    "tone": "pink",
+    "summary": "Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.",
+    "tools": [
+      "R"
+    ],
+    "topics": [
+      "Multivariate analysis"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/robust-canonical-correlation.pdf"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "research",
+    "categoryLabel": "Research Paper",
+    "type": "PDF",
+    "title": "Heteroskedasticity-Robust Regression on Students' Study Hours",
+    "main": "papers/study-hours-regression.pdf",
+    "thumb": "thumbs/study-hours-regression.jpg",
+    "tone": "pink",
+    "summary": "Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.",
+    "tools": [
+      "R"
+    ],
+    "topics": [
+      "Regression"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/study-hours-regression.pdf"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "research",
+    "categoryLabel": "Research Paper",
+    "type": "PDF",
+    "title": "Road Accident Severity in the UK",
+    "main": "papers/uk-road-accident-severity.pdf",
+    "thumb": "thumbs/uk-road-accident-severity.jpg",
+    "tone": "pink",
+    "summary": "Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.",
+    "tools": [
+      "R"
+    ],
+    "topics": [
+      "Regression"
+    ],
+    "links": [
+      {
+        "label": "Read paper (PDF)",
+        "url": "papers/uk-road-accident-severity.pdf"
+      }
+    ]
   }
-  qEl.addEventListener('input',function(){apply(cur)});
-  function pick(f){
-    apply(cur===f&&f!=='all'?'all':f);
-  }
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('[data-filter]'); if(!b)return;
-    pick(b.dataset.filter);
-    if(b.classList.contains('tag'))document.getElementById('projects').scrollIntoView({behavior:'smooth'});
-  });
-  var h=location.hash.slice(1);
-  apply(labels[h]?h:'all');
-})();
-</script>
+],
+        init() {
+          window.addEventListener('scroll', () => { this.scrolled = window.scrollY > 16; }, { passive: true });
+          if (window.AOS) AOS.init({ once: true, offset: 40, duration: 550, easing: 'ease-out-cubic' });
+          const refresh = () => this.$nextTick(() => { if (window.lucide) lucide.createIcons(); });
+          refresh();
+          this.$watch('activeCategory', refresh); this.$watch('activeTool', refresh); this.$watch('searchQuery', refresh);
+        },
+        get filteredProjects() {
+          const q = this.searchQuery.trim().toLowerCase();
+          return this.projects.filter(p => {
+            const okCat = this.activeCategory === 'all' || p.category === this.activeCategory;
+            const okTool = !this.activeTool || p.tools.includes(this.activeTool);
+            const okQ = !q || (p.title + ' ' + p.summary + ' ' + p.tools.join(' ') + ' ' + p.topics.join(' ')).toLowerCase().includes(q);
+            return okCat && okTool && okQ;
+          });
+        },
+        countByCategory(id) { return id === 'all' ? this.projects.length : this.projects.filter(p => p.category === id).length; },
+        toggleTool(t) { this.activeTool = this.activeTool === t ? null : t; },
+        resetFilters() { this.activeCategory = 'all'; this.activeTool = null; this.searchQuery = ''; }
+      };
+    }
+  </script>
 </body>
 </html>
