@@ -108,7 +108,7 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
 <section class="stackbar" id="projects"><div class="wrap">
   <dl class="filters" aria-label="Filter projects">
     <dt>Browse</dt><dd><button type="button" class="chip all" data-filter="all" aria-pressed="true">All</button></dd>
-    <dt>Tech stack</dt><dd><button type="button" class="chip tool" data-filter="laravel" aria-pressed="false">Laravel</button><button type="button" class="chip tool" data-filter="figma" aria-pressed="false">Figma</button><button type="button" class="chip tool" data-filter="python" aria-pressed="false">Python</button><button type="button" class="chip tool" data-filter="r" aria-pressed="false">R</button></dd>
+    <dt>Tech stack</dt><dd><button type="button" class="chip tool" data-filter="laravel" aria-pressed="false">Laravel</button><button type="button" class="chip tool" data-filter="figma" aria-pressed="false">Figma</button><button type="button" class="chip tool" data-filter="python" aria-pressed="false">Python</button><button type="button" class="chip tool" data-filter="r" aria-pressed="false">R</button><button type="button" class="chip tool" data-filter="javascript" aria-pressed="false">JavaScript</button></dd>
     <dt>Topics</dt><dd><button type="button" class="chip topic" data-filter="web-app" aria-pressed="false">Web app</button><button type="button" class="chip topic" data-filter="ui-ux" aria-pressed="false">UI/UX</button><button type="button" class="chip topic" data-filter="linear-algebra" aria-pressed="false">Linear algebra</button><button type="button" class="chip topic" data-filter="machine-learning" aria-pressed="false">Machine learning</button><button type="button" class="chip topic" data-filter="deep-learning" aria-pressed="false">Deep learning</button><button type="button" class="chip topic" data-filter="forecasting" aria-pressed="false">Forecasting</button><button type="button" class="chip topic" data-filter="regression" aria-pressed="false">Regression</button><button type="button" class="chip topic" data-filter="multivariate-analysis" aria-pressed="false">Multivariate analysis</button></dd>
   </dl>
   <p class="status" id="status" aria-live="polite"></p>
@@ -152,6 +152,15 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
       <h3><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Matrix Calculator</a></h3>
       <p>A web app for linear algebra: diagonalization, LU decomposition (Crout&#x27;s method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.</p>
       <div class="links"><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Documentation (PDF)</a><a href="https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/DavinTanaya/MatrixCalculator" target="_blank" rel="noopener">GitHub repository</a></div>
+    </div>
+  </li>
+  <li class="card" data-tags="javascript ui-ux web-app">
+    <a class="thumb" href="calculator/index.html" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/calculator.jpg" alt="Preview of the calculator" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">Live website</span><span class="tags"><button type="button" class="tag tool" data-filter="javascript">JavaScript</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button><button type="button" class="tag topic" data-filter="web-app">Web app</button></span></div>
+      <h3><a href="calculator/index.html" target="_blank" rel="noopener">Calculator</a></h3>
+      <p>A basic calculator in plain JavaScript. It has its own expression parser instead of eval, so it follows operator precedence, handles percent and divide-by-zero, and works from the keyboard.</p>
+      <div class="links"><a href="calculator/index.html" target="_blank" rel="noopener">Live website</a></div>
     </div>
   </li>
 </ul>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculator | Vania Wyanet Tumbelaka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf5;--ink:#4a3341;--muted:#7f6676;--line:#f0d7e0;
+  --pink:#ffe3ec;--pink-deep:#f6bfd3;--yellow:#fff2c2;--yellow-deep:#ecd283;--rose:#93426a;
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 var(--sans);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px}
+.back{align-self:center;font-size:.9rem;color:var(--muted)}
+.back:hover{color:var(--rose)}
+.calc{width:100%;max-width:340px;background:var(--pink);border:1px solid var(--pink-deep);border-radius:14px;padding:16px;box-shadow:6px 6px 0 var(--yellow-deep)}
+.screen{background:#fff;border:1px solid var(--pink-deep);border-radius:8px;padding:12px 14px 10px;margin-bottom:14px;text-align:right;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.expr{color:var(--muted);font-size:.9rem;min-height:1.3em;white-space:nowrap;overflow:hidden}
+.out{font:500 2.4rem/1.15 var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.out.err{font-size:1.3rem;color:var(--rose)}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+button{font:500 1.15rem var(--sans);height:54px;border:1px solid var(--pink-deep);border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;transition:transform .06s,background .15s}
+button:hover{background:var(--yellow)}
+button:active{transform:translateY(2px)}
+button:focus-visible{outline:3px solid var(--yellow-deep);outline-offset:2px}
+.op{background:var(--yellow);border-color:var(--yellow-deep)}
+.fn{background:var(--pink);color:var(--rose)}
+.eq{background:var(--ink);border-color:var(--ink);color:#fff}
+.eq:hover{background:var(--rose);border-color:var(--rose)}
+.zero{grid-column:span 2}
+.hint{font-size:.8rem;color:var(--muted);text-align:center;margin:0}
+</style>
+</head>
+<body>
+<a class="back" href="../index.html">&larr; Back to portfolio</a>
+<main class="calc" aria-label="Calculator">
+  <div class="screen" role="status" aria-live="polite">
+    <div class="expr" id="expr"></div>
+    <div class="out" id="out">0</div>
+  </div>
+  <div class="keys">
+    <button class="fn" data-k="C" aria-label="Clear">C</button>
+    <button class="fn" data-k="BS" aria-label="Backspace">&#9003;</button>
+    <button class="fn" data-k="%" aria-label="Percent">%</button>
+    <button class="op" data-k="/" aria-label="Divide">&divide;</button>
+    <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+    <button class="op" data-k="*" aria-label="Multiply">&times;</button>
+    <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+    <button class="op" data-k="-" aria-label="Subtract">&minus;</button>
+    <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+    <button class="op" data-k="+" aria-label="Add">+</button>
+    <button class="zero" data-k="0">0</button>
+    <button data-k=".">.</button>
+    <button class="eq" data-k="=" aria-label="Equals">=</button>
+  </div>
+</main>
+<p class="hint">Keyboard works too: numbers, + - * /, Enter, Backspace, Esc.</p>
+<script>
+(function(){
+  var exprEl=document.getElementById('expr'),outEl=document.getElementById('out');
+  var expr='',justEvaluated=false;
+  var SHOW={'*':'×','/':'÷','-':'−','+':'+'};
+
+  function evaluate(str){
+    var i=0;
+    function peek(){return str[i]}
+    function number(){
+      var s=i;
+      while(i<str.length&&/[0-9.]/.test(str[i]))i++;
+      var t=str.slice(s,i);
+      if(!t||t.split('.').length>2||t==='.')throw new Error('Invalid input');
+      var v=parseFloat(t);
+      while(peek()==='%'){v/=100;i++}
+      return v;
+    }
+    function unary(){
+      if(peek()==='-'){i++;return -unary()}
+      if(peek()==='+'){i++;return unary()}
+      return number();
+    }
+    function term(){
+      var v=unary();
+      while(peek()==='*'||peek()==='/'){
+        var op=str[i++],r=unary();
+        if(op==='/'){if(r===0)throw new Error('Cannot divide by zero');v/=r}else v*=r;
+      }
+      return v;
+    }
+    function sum(){
+      var v=term();
+      while(peek()==='+'||peek()==='-'){
+        var op=str[i++],r=term();
+        v=op==='+'?v+r:v-r;
+      }
+      return v;
+    }
+    var res=sum();
+    if(i<str.length)throw new Error('Invalid input');
+    return res;
+  }
+
+  function fmt(n){
+    if(!isFinite(n))throw new Error('Result too large');
+    var r=parseFloat(n.toPrecision(12));
+    var s=String(r);
+    if(/e/.test(s))return s;
+    var p=s.split('.');
+    p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    return p.join('.');
+  }
+
+  function pretty(s){
+    return s.replace(/[*\/+\-]/g,function(c){return ' '+SHOW[c]+' '});
+  }
+
+  function live(){
+    exprEl.textContent=pretty(expr);exprEl.scrollLeft=exprEl.scrollWidth;
+    outEl.classList.remove('err');
+    if(!expr){outEl.textContent='0';return}
+    try{
+      var t=expr.replace(/[*\/+\-.]+$/,'');
+      outEl.textContent=t&&(/[*\/+\-]/.test(t.replace(/^-/,''))||/%/.test(t))?fmt(evaluate(t)):(t||'0');
+    }catch(e){outEl.textContent=lastNumber()}
+  }
+  function lastNumber(){
+    var m=expr.match(/[0-9.]+%*$/);
+    return m?m[0]:'0';
+  }
+
+  function press(k){
+    if(k==='C'){expr='';justEvaluated=false;live();return}
+    if(k==='BS'){
+      if(justEvaluated){expr='';justEvaluated=false}else expr=expr.slice(0,-1);
+      live();return;
+    }
+    if(k==='='){
+      if(!expr)return;
+      try{
+        var t=expr.replace(/[*\/+\-.]+$/,'');
+        var res=evaluate(t);
+        exprEl.textContent=pretty(t)+' =';
+        outEl.classList.remove('err');
+        outEl.textContent=fmt(res);
+        expr=String(parseFloat(res.toPrecision(12)));
+        justEvaluated=true;
+      }catch(e){
+        outEl.textContent=e.message;outEl.classList.add('err');
+        expr='';justEvaluated=false;
+      }
+      return;
+    }
+    var isOp=/[*\/+\-]/.test(k);
+    if(justEvaluated){
+      if(!isOp&&k!=='%')expr='';
+      justEvaluated=false;
+    }
+    if(isOp){
+      if(!expr){if(k==='-')expr='-';live();return}
+      if(expr==='-')return;
+      if(/[*\/+\-]$/.test(expr)){
+        if(k==='-'&&!/[*\/][-]$/.test(expr)&&/[*\/]$/.test(expr)){expr+=k}
+        else expr=expr.replace(/[*\/+\-]+$/,k);
+      }else expr+=k;
+    }else if(k==='%'){
+      if(!/[0-9]$|%$/.test(expr))return;
+      expr+=k;
+    }else if(k==='.'){
+      var cur=expr.match(/[0-9.]*$/)[0];
+      if(cur.indexOf('.')>-1)return;
+      if(/%$/.test(expr))return;
+      expr+=cur===''?'0.':'.';
+    }else{
+      if(/%$/.test(expr))return;
+      var c=expr.match(/[0-9.]*$/)[0];
+      if(c==='0'&&k==='0')return;
+      if(c==='0'&&k!=='0'){expr=expr.slice(0,-1)}
+      if(c.replace('.','').length>=15)return;
+      expr+=k;
+    }
+    live();
+  }
+
+  document.querySelector('.keys').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(b)press(b.dataset.k);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.ctrlKey||e.metaKey||e.altKey)return;
+    var k=e.key;
+    if(/^[0-9]$/.test(k)||/^[+\-*\/%.]$/.test(k)){press(k);e.preventDefault()}
+    else if(k==='Enter'||k==='='){
+      if(document.activeElement&&document.activeElement.tagName==='BUTTON')return;
+      press('=');e.preventDefault();
+    }
+    else if(k==='Backspace'){press('BS');e.preventDefault()}
+    else if(k==='Escape'||k==='Delete'){press('C');e.preventDefault()}
+    else if(k===','){press('.');e.preventDefault()}
+  });
+  live();
+})();
+</script>
+</body>
+</html>
