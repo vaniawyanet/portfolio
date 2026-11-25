@@ -313,12 +313,15 @@
               type="button"
               @click="toggleTool(tool)"
               :aria-pressed="activeTool === tool"
-              class="px-3 py-1 rounded-lg text-xs font-medium border transition-all"
+              :disabled="activeTool !== tool && toolCount(tool) === 0"
+              class="px-3 py-1 rounded-lg text-xs font-medium border transition-all disabled:opacity-40 disabled:cursor-not-allowed"
               :class="activeTool === tool
                 ? 'bg-ink text-white border-ink'
                 : 'bg-butter text-gold border-butter-deep hover:brightness-95'"
-              x-text="tool"
-            ></button>
+            >
+              <span x-text="tool"></span>
+              <span class="ml-1 opacity-70" x-text="toolCount(tool)"></span>
+            </button>
           </template>
         </div>
 
@@ -349,7 +352,7 @@
         <i data-lucide="folder-search" class="w-6 h-6"></i>
       </div>
       <h3 class="font-serif text-xl text-ink mb-1">No matching projects found</h3>
-      <p class="text-sm text-muted mb-5">Try clearing your search keyword or switching to another category.</p>
+      <p class="text-sm text-muted mb-5"><span x-text="emptyReason()"></span></p>
       <button
         type="button"
         @click="resetFilters()"
@@ -841,6 +844,19 @@
             const okQ = !q || (p.title + ' ' + p.summary + ' ' + p.tools.join(' ') + ' ' + p.topics.join(' ')).toLowerCase().includes(q);
             return okCat && okTool && okQ;
           });
+        },
+        toolCount(t) {
+          const q = this.searchQuery.trim().toLowerCase();
+          return this.projects.filter(p => (this.activeCategory === 'all' || p.category === this.activeCategory)
+            && p.tools.includes(t)
+            && (!q || (p.title + ' ' + p.summary + ' ' + p.tools.join(' ') + ' ' + p.topics.join(' ')).toLowerCase().includes(q))).length;
+        },
+        emptyReason() {
+          const parts = [];
+          if (this.activeCategory !== 'all') parts.push('category "' + this.categories.find(c => c.id === this.activeCategory).label + '"');
+          if (this.activeTool) parts.push('tech "' + this.activeTool + '"');
+          if (this.searchQuery.trim()) parts.push('search "' + this.searchQuery.trim() + '"');
+          return 'Nothing matches ' + parts.join(' + ') + '. Remove one of them to see more.';
         },
         countByCategory(id) { return id === 'all' ? this.projects.length : this.projects.filter(p => p.category === id).length; },
         toggleTool(t) { this.activeTool = this.activeTool === t ? null : t; },
