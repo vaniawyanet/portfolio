@@ -45,6 +45,13 @@ h2.section::after{content:"";flex:1;height:0;border-top:3px dotted var(--pink-de
 .card:nth-child(3n+2):hover{box-shadow:7px 8px 0 var(--yellow)}
 .card::before{content:"";position:absolute;top:-13px;left:50%;width:92px;height:24px;margin-left:-46px;background:rgba(255,205,224,.8);transform:rotate(-3deg);border-left:2px dashed rgba(255,255,255,.9);border-right:2px dashed rgba(255,255,255,.9)}
 .card:nth-child(even)::before{background:rgba(255,238,168,.85);transform:rotate(2.5deg)}
+.thumb{display:block;margin:-8px -6px 4px;border:2px solid var(--pink);border-radius:4px 12px 6px 12px;overflow:hidden;background:var(--pink);aspect-ratio:4/3}
+.card:nth-child(3n+2) .thumb{border-color:var(--yellow)}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .25s ease}
+.card:hover .thumb img{transform:scale(1.03)}
+.thumb.ph{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:16px;background:repeating-linear-gradient(45deg,var(--pink) 0 14px,#fff0f5 14px 28px)}
+.card:nth-child(3n+2) .thumb.ph{background:repeating-linear-gradient(45deg,var(--yellow) 0 14px,#fffbe8 14px 28px)}
+.thumb.ph span{font:400 1.7rem/1.1 var(--hand);color:var(--ink);background:var(--paper);padding:6px 16px;border-radius:12px;border:2px dashed var(--pink-deep)}
 .kind{font:600 .72rem var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--rose-text);align-self:flex-start}
 .kind::before{content:"\2665 ";color:var(--pink-deep)}
 .card:nth-child(3n+2) .kind{color:var(--gold-text)}
@@ -75,29 +82,36 @@ footer::before{content:"";display:block;width:34px;height:34px;margin:0 auto 6px
 <main>
 <h2 class="section">Research papers</h2>
 <ul class="grid">
-  <li class="card"><span class="kind">PDF · Time-series forecasting</span>
+  <li class="card"><a class="thumb" href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/air-quality-forecasting.jpg" alt="Preview of Forecasting Jakarta's Daily Air Quality" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Time-series forecasting</span>
     <h3><a href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener">Forecasting Jakarta's Daily Air Quality</a></h3>
     <p>ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.</p></li>
-  <li class="card"><span class="kind">PDF · Multivariate statistics</span>
+  <li class="card"><a class="thumb" href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/robust-canonical-correlation.jpg" alt="Preview of Robust Canonical Correlation: Social Media Use and Self-Esteem" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Multivariate statistics</span>
     <h3><a href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener">Robust Canonical Correlation: Social Media Use and Self-Esteem</a></h3>
     <p>Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.</p></li>
-  <li class="card"><span class="kind">PDF · Regression analysis</span>
+  <li class="card"><a class="thumb" href="papers/study-hours-regression.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/study-hours-regression.jpg" alt="Preview of Heteroskedasticity-Robust Regression on Students' Study Hours" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Regression analysis</span>
     <h3><a href="papers/study-hours-regression.pdf" target="_blank" rel="noopener">Heteroskedasticity-Robust Regression on Students' Study Hours</a></h3>
     <p>Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.</p></li>
-  <li class="card"><span class="kind">PDF · Categorical data analysis</span>
+  <li class="card"><a class="thumb" href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/uk-road-accident-severity.jpg" alt="Preview of Road Accident Severity in the UK" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Categorical data analysis</span>
     <h3><a href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener">Road Accident Severity in the UK</a></h3>
     <p>Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.</p></li>
-  <li class="card"><span class="kind">PDF · Machine learning</span>
+  <li class="card"><a class="thumb" href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/maternal-health-risk-ml.jpg" alt="Preview of Machine Learning for Maternal Health Risk Prediction" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Machine learning</span>
     <h3><a href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener">Machine Learning for Maternal Health Risk Prediction</a></h3>
     <p>Group paper (Computational Biology) comparing nine classifiers on a public maternal health risk dataset, with exploratory analysis of blood pressure, blood sugar and class imbalance. Tree-based ensembles performed best.</p></li>
-  <li class="card"><span class="kind">PDF · Data mining and visualization</span>
+  <li class="card"><a class="thumb" href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/online-shoppers-purchase-intention.jpg" alt="Preview of Predicting Online Shoppers' Purchase Intention in R" loading="lazy" width="640" height="480"></a>
+    <span class="kind">PDF · Data mining and visualization</span>
     <h3><a href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener">Predicting Online Shoppers' Purchase Intention in R</a></h3>
     <p>Exploratory analysis and six classifiers (decision tree, random forest, SVM, naive Bayes, KNN, logistic regression) on 12,330 shopping sessions, with business recommendations. Random forest was the most accurate at 90.4%.</p></li>
 </ul>
 
 <h2 class="section">Machine learning</h2>
 <ul class="grid">
-  <li class="card"><span class="kind">Group project · Machine learning</span>
+  <li class="card"><a class="thumb ph" href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Student Depression Prediction</span></a>
+    <span class="kind">Group project · Machine learning</span>
     <h3><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Student Depression Prediction</a></h3>
     <p>Group machine learning project (Group 7, class LA06) built on the public Student Depression dataset from Kaggle. Delivered as a Colab notebook and a Canva poster.</p>
     <div class="links"><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Colab notebook</a><a href="https://www.canva.com/design/DAGqCtZGcnM/I14SCtwnrMOp7cDT0feb3w/view" target="_blank" rel="noopener">Poster</a><a href="https://www.kaggle.com/datasets/hopesb/student-depression-dataset" target="_blank" rel="noopener">Dataset</a></div></li>
@@ -105,19 +119,23 @@ footer::before{content:"";display:block;width:34px;height:34px;margin:0 auto 6px
 
 <h2 class="section">Design and web projects</h2>
 <ul class="grid">
-  <li class="card"><span class="kind">GitHub · Laravel web app</span>
+  <li class="card"><a class="thumb ph" href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>NyarisBaru</span></a>
+    <span class="kind">GitHub · Laravel web app</span>
     <h3><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">NyarisBaru</a></h3>
     <p>A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.</p>
     <div class="links"><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">GitHub repository</a></div></li>
-  <li class="card"><span class="kind">Figma · Requirements engineering</span>
+  <li class="card"><a class="thumb ph" href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Pawfect</span></a>
+    <span class="kind">Figma · Requirements engineering</span>
     <h3><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Pawfect</a></h3>
     <p>An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.</p>
     <div class="links"><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/abgailhlm/Pawfect" target="_blank" rel="noopener">GitHub repository</a></div></li>
-  <li class="card"><span class="kind">Figma · Human-computer interaction</span>
+  <li class="card"><a class="thumb" href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/jci-drone-store.jpg" alt="Preview of JCI Drone Store" loading="lazy" width="640" height="480"></a>
+    <span class="kind">Figma · Human-computer interaction</span>
     <h3><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">JCI Drone Store</a></h3>
     <p>A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.</p>
     <div class="links"><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="jci/home.html" target="_blank" rel="noopener">Live website</a></div></li>
-  <li class="card"><span class="kind">Documentation + Figma + GitHub · Linear algebra</span>
+  <li class="card"><a class="thumb" href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/matrix-calculator-documentation.jpg" alt="Preview of Matrix Calculator" loading="lazy" width="640" height="480"></a>
+    <span class="kind">Documentation + Figma + GitHub · Linear algebra</span>
     <h3><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Matrix Calculator</a></h3>
     <p>A web app for linear algebra: diagonalization, LU decomposition (Crout's method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.</p>
     <div class="links"><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Documentation (PDF)</a><a href="https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/DavinTanaya/MatrixCalculator" target="_blank" rel="noopener">GitHub repository</a></div></li>
