@@ -11,52 +11,43 @@
 <style>
 /* Layout idea: a card index. Each card opens its evidence directly (PDF, Figma, GitHub) in a new tab. */
 :root{
-  --bg:#fff4f8;--surface:#ffffff;--ink:#3a2030;--muted:#7a5568;--line:#f6cfdf;--accent:#b02a66;--accent-soft:#ffe0ec;
-  --pink-1:#ffd6e6;--pink-2:#ffc2da;--pink-3:#ffe9f1;--shadow:0 6px 18px rgba(214,102,150,.14);--shadow-hover:0 12px 28px rgba(214,102,150,.26);
+  --bg:#fffaf4;--surface:#ffffff;--ink:#5b3f4d;--muted:#8a6a78;--line:#f8d9e4;
+  --pink:#ffe1ec;--pink-deep:#ffcadd;--yellow:#fff3c6;--yellow-deep:#ffe9a3;
+  --rose-text:#9a4a6c;--gold-text:#7a5a16;
   --display:'Sora',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
   color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#24121c;--surface:#321a27;--ink:#ffe9f2;--muted:#e2b5c9;--line:#58283f;--accent:#ff9fc4;--accent-soft:#4a2236;
-    --pink-1:#4a2236;--pink-2:#5d2a45;--pink-3:#3a1c2b;--shadow:0 6px 18px rgba(0,0,0,.35);--shadow-hover:0 12px 28px rgba(0,0,0,.5);color-scheme:dark}
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
 a{color:inherit}
-a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+a:focus-visible{outline:3px solid var(--pink-deep);outline-offset:3px;border-radius:8px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-header{margin:28px 0 8px;padding:48px 36px 40px;border-radius:28px;position:relative;overflow:hidden;
-  background:radial-gradient(circle at 12% 18%,var(--pink-2) 0,transparent 42%),radial-gradient(circle at 92% 90%,var(--pink-1) 0,transparent 46%),var(--pink-3);
-  border:1px solid var(--line);box-shadow:var(--shadow)}
-header::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:var(--pink-2);opacity:.45}
-header>*{position:relative;z-index:1}
-h1{font:700 clamp(2rem,5vw,3.1rem)/1.1 var(--display);margin:0 0 14px;text-wrap:balance;color:var(--ink)}
-.lead{max-width:62ch;color:var(--muted);margin:0 0 20px;font-size:1.05rem}
+header{margin:28px 0 8px;padding:40px 36px 34px;border-radius:24px;background:var(--pink);border:1px solid var(--line)}
+h1{font:700 clamp(1.9rem,5vw,2.8rem)/1.12 var(--display);margin:0 0 10px;text-wrap:balance;color:var(--ink)}
+.lead{max-width:60ch;color:var(--muted);margin:0 0 20px;font-size:1.02rem}
 .tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
-.tags li{font:500 .8rem var(--mono);background:var(--surface);color:var(--accent);padding:5px 13px;border-radius:999px;border:1px solid var(--line)}
-h2.section{display:inline-block;font:600 .82rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:6px 16px;border-radius:999px;margin:40px 0 18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding:0;margin:0;list-style:none}
-.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.card::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,var(--pink-2),var(--pink-1))}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:var(--pink-2)}
-.kind{font:500 .74rem var(--mono);color:var(--accent);background:var(--accent-soft);align-self:flex-start;padding:3px 10px;border-radius:999px;margin-top:4px}
-.card h3{font:600 1.1rem/1.3 var(--display);margin:0}
+.tags li{font:500 .8rem var(--mono);background:var(--yellow);color:var(--gold-text);padding:4px 12px;border-radius:999px}
+h2.section{display:inline-block;font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--gold-text);background:var(--yellow);padding:5px 14px;border-radius:999px;margin:38px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding:0;margin:0;list-style:none}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;transition:background .15s ease,border-color .15s ease}
+.card:hover{background:#fffafc;border-color:var(--pink-deep)}
+.kind{font:500 .74rem var(--mono);color:var(--rose-text);background:var(--pink);align-self:flex-start;padding:3px 10px;border-radius:999px}
+.card h3{font:600 1.08rem/1.3 var(--display);margin:0}
 .card h3 a{text-decoration:none}
-.card h3 a::after{content:" \2197";color:var(--accent)}
+.card h3 a::after{content:" \2197";color:var(--rose-text)}
 .card p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
 .links{display:flex;flex-wrap:wrap;gap:8px}
-.links a{font:500 .78rem var(--mono);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--pink-3)}
-.links a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.links a{font:500 .78rem var(--mono);text-decoration:none;border-radius:999px;padding:5px 12px;background:var(--pink);color:var(--rose-text)}
+.links a:hover{background:var(--yellow-deep);color:var(--gold-text)}
 footer{padding:40px 0 56px;color:var(--muted);font-size:.88rem;text-align:center}
-@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
-@media (max-width:560px){header{padding:36px 22px 30px;border-radius:22px}}
+@media (max-width:560px){header{padding:30px 22px 26px;border-radius:20px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <h1>Vania Wyanet Tumbelaka</h1>
-  <p class="lead">Computer Science and Statistics student at BINUS University. I build statistical and machine-learning models on survey and time-series data, and design the interfaces around them. Pick a project below; each one opens its paper, design or code in a new tab.</p>
+  <p class="lead">Computer Science and Statistics student at BINUS University. A collection of my coursework and team projects.</p>
   <ul class="tags"><li>Forecasting</li><li>Regression</li><li>Multivariate analysis</li><li>R</li><li>Python</li><li>Figma</li><li>Laravel</li></ul>
 </header>
 
