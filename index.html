@@ -50,7 +50,7 @@ h1{font:500 clamp(2.4rem,6vw,4.1rem)/1.04 var(--serif);letter-spacing:-.015em;ma
 .about-grid{display:grid;grid-template-columns:1.2fr 1.1fr .9fr;gap:48px}
 .about h2{display:block;border:0;padding:0;margin:0 0 16px;font:700 .72rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
 .about p{margin:0 0 16px;color:var(--ink)}
-.contact-lead{font:500 1.35rem/1.2 var(--serif)}
+.contact-lead{display:block;margin:0 0 16px;color:var(--ink);text-decoration:none;font:500 1.35rem/1.2 var(--serif)}.contact-lead:hover{color:var(--rose);text-decoration:underline}
 .timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:1px solid var(--pink-deep)}
 .timeline li{position:relative;padding:0 0 18px}
 .timeline li::before{content:"";position:absolute;left:-27px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--yellow-deep)}
@@ -248,8 +248,8 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
   </div>
   <div id="contact">
     <h2>Contact</h2>
-    <p class="contact-lead">Questions about a project?</p>
-    <a class="btn primary" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="contact-lead" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">Questions about a project?</a>
+    <a class="btn primary" href="https://www.linkedin.com/in/vaniawyanet" target="_blank" rel="noopener">Message me on LinkedIn</a>
   </div>
 </div></section>
 <footer><div class="wrap">Team projects are credited to their authors in each paper.</div></footer>
