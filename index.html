@@ -7,141 +7,240 @@
 <meta name="description" content="Portfolio of Vania Wyanet Tumbelaka, Computer Science and Statistics student at BINUS University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Patrick+Hand&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<noscript><style>.filters{display:none}</style></noscript>
 <style>
-/* A scrapbook-style index. Each card opens its evidence directly (PDF, Figma, GitHub) in a new tab. */
 :root{
-  --bg:#fff6f0;--paper:#fffdfb;--ink:#5b3f4d;--muted:#86697a;--pink:#ffdce8;--pink-deep:#f7b6cd;--yellow:#fff1b8;--yellow-deep:#f3d67a;
-  --rose-text:#9a4a6c;--gold-text:#78591a;
-  --hand:'Patrick Hand','Nunito',system-ui,sans-serif;--note:'Caveat','Patrick Hand',cursive;--body:'Nunito',system-ui,sans-serif;
+  --bg:#fffaf5;--paper:#ffffff;--ink:#4a3341;--muted:#7f6676;--line:#f0d7e0;
+  --pink:#ffe3ec;--pink-deep:#f6bfd3;--yellow:#fff2c2;--yellow-deep:#ecd283;
+  --rose:#93426a;--gold:#6f5212;
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);font:16px/1.65 var(--body);
-  background-color:var(--bg);
-  background-image:linear-gradient(90deg,rgba(255,214,228,.2) 50%,transparent 50%),linear-gradient(rgba(255,214,228,.2) 50%,transparent 50%);
-  background-size:44px 44px,44px 44px}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22420%22 height=%22420%22 viewBox=%220 0 420 420%22%3E%0A%3Cg fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222.4%22%3E%0A%3Cpath d=%22M52 70c-9-12-26-4-20 10 4 9 20 18 20 18s16-9 20-18c6-14-11-22-20-10z%22 stroke=%22%23f7b6cd%22 fill=%22%23fff0f5%22/%3E%0A%3Cpath d=%22M300 40l5 13 14 1-11 9 4 14-12-8-12 8 4-14-11-9 14-1z%22 stroke=%22%23f3d67a%22 fill=%22%23fff6d3%22/%3E%0A%3Cpath d=%22M180 150c-14 0-20 12-14 20-12 2-14 18-2 22h44c12-4 10-20-2-22 6-9-2-22-14-20-4-9-10-5-12 0z%22 stroke=%22%23f7c7da%22 fill=%22%23fff%22/%3E%0A%3Cg transform=%22translate%28340 250%29%22 stroke=%22%23f3d67a%22%3E%3Ccircle r=%225%22 fill=%22%23fff6d3%22/%3E%3Ccircle cx=%220%22 cy=%22-12%22 r=%226%22 fill=%22%23fffbe8%22/%3E%3Ccircle cx=%2211%22 cy=%22-4%22 r=%226%22 fill=%22%23fffbe8%22/%3E%3Ccircle cx=%227%22 cy=%2210%22 r=%226%22 fill=%22%23fffbe8%22/%3E%3Ccircle cx=%22-7%22 cy=%2210%22 r=%226%22 fill=%22%23fffbe8%22/%3E%3Ccircle cx=%22-11%22 cy=%22-4%22 r=%226%22 fill=%22%23fffbe8%22/%3E%3C/g%3E%0A%3Cpath d=%22M70 300l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z%22 stroke=%22%23f7b6cd%22 fill=%22%23fff0f5%22/%3E%0A%3Cpath d=%22M150 360q10-14 20 0t20 0%22 stroke=%22%23f3d67a%22/%3E%0A%3Cpath d=%22M380 120c-6-8-17-3-13 6 3 6 13 12 13 12s10-6 13-12c4-9-7-14-13-6z%22 stroke=%22%23f7c7da%22 fill=%22%23fff%22/%3E%0A%3C/g%3E%0A%3Cg fill=%22%23f9cfdf%22%3E%3Ccircle cx=%22230%22 cy=%2260%22 r=%223%22/%3E%3Ccircle cx=%22120%22 cy=%22230%22 r=%223%22/%3E%3Ccircle cx=%22260%22 cy=%22340%22 r=%223%22/%3E%3Ccircle cx=%2220%22 cy=%22190%22 r=%223%22/%3E%3C/g%3E%0A%3Cg fill=%22%23f6e3a0%22%3E%3Ccircle cx=%22400%22 cy=%22330%22 r=%223%22/%3E%3Ccircle cx=%22210%22 cy=%22260%22 r=%223%22/%3E%3Ccircle cx=%22110%22 cy=%2220%22 r=%223%22/%3E%3C/g%3E%0A%3C/svg%3E") 0 0/620px 620px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
 a{color:inherit}
-a:focus-visible{outline:3px dashed var(--pink-deep);outline-offset:3px;border-radius:10px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-header{padding:64px 0 22px;position:relative}
-header::before{content:"";position:absolute;right:1%;top:30px;width:64px;height:64px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 4c2 14 12 24 26 26-14 2-24 12-26 26-2-14-12-24-26-26 14-2 24-12 26-26z%22 fill=%22%23fff0b8%22 stroke=%22%23f1cd62%22 stroke-width=%222.5%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(12deg)}
-header::after{content:"";position:absolute;right:calc(1% + 56px);top:88px;width:34px;height:34px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 4c2 14 12 24 26 26-14 2-24 12-26 26-2-14-12-24-26-26 14-2 24-12 26-26z%22 fill=%22%23fff0b8%22 stroke=%22%23f1cd62%22 stroke-width=%222.5%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(-10deg);opacity:.9}
-h1{font:400 clamp(2.4rem,7vw,4.2rem)/1.05 var(--hand);margin:0 0 10px;color:var(--ink);letter-spacing:.01em;display:inline-block;background:linear-gradient(transparent 62%,var(--yellow) 62% 92%,transparent 92%);padding:0 8px;margin-left:-8px}
-.lead{max-width:56ch;color:var(--muted);margin:12px 0 20px;font-size:1.08rem}
-.tags{display:flex;flex-wrap:wrap;gap:9px;padding:0;margin:0;list-style:none}
-.tags li{font:400 1rem var(--hand);background:var(--paper);color:var(--rose-text);padding:2px 14px;border:2px dashed var(--pink-deep);border-radius:999px}
-.tags li:nth-child(even){border-color:var(--yellow-deep);color:var(--gold-text);transform:rotate(1.5deg)}
-.tags li:nth-child(odd){transform:rotate(-1.5deg)}
-h2.section{font:400 1.7rem/1.1 var(--hand);color:var(--ink);margin:46px 0 22px;display:flex;align-items:center;gap:12px}
-h2.section::after{content:"";flex:1;height:0;border-top:3px dotted var(--pink-deep)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 26px;padding:0;margin:0;list-style:none}
-.card{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--paper);border:2px solid var(--pink-deep);border-radius:6px 16px 8px 18px;padding:26px 20px 20px;box-shadow:5px 5px 0 var(--pink);transition:transform .18s ease,box-shadow .18s ease}
-.card:nth-child(3n+1){transform:rotate(-.9deg)}
-.card:nth-child(3n+2){transform:rotate(.7deg);border-color:var(--yellow-deep);box-shadow:5px 5px 0 var(--yellow)}
-.card:nth-child(3n){transform:rotate(-.4deg)}
-.card:hover{transform:rotate(0) translateY(-3px);box-shadow:7px 8px 0 var(--pink)}
-.card:nth-child(3n+2):hover{box-shadow:7px 8px 0 var(--yellow)}
-.card::before{content:"";position:absolute;top:-13px;left:50%;width:92px;height:24px;margin-left:-46px;background:rgba(255,205,224,.8);transform:rotate(-3deg);border-left:2px dashed rgba(255,255,255,.9);border-right:2px dashed rgba(255,255,255,.9)}
-.card:nth-child(even)::before{background:rgba(255,238,168,.85);transform:rotate(2.5deg)}
-.thumb{display:block;margin:-8px -6px 4px;border:2px solid var(--pink);border-radius:4px 12px 6px 12px;overflow:hidden;background:var(--pink);aspect-ratio:4/3}
-.card:nth-child(3n+2) .thumb{border-color:var(--yellow)}
-.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .25s ease}
-.card:hover .thumb img{transform:scale(1.03)}
-.thumb.ph{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:16px;background:repeating-linear-gradient(45deg,var(--pink) 0 14px,#fff0f5 14px 28px)}
-.card:nth-child(3n+2) .thumb.ph{background:repeating-linear-gradient(45deg,var(--yellow) 0 14px,#fffbe8 14px 28px)}
-.thumb.ph span{font:400 1.7rem/1.1 var(--hand);color:var(--ink);background:var(--paper);padding:6px 16px;border-radius:12px;border:2px dashed var(--pink-deep)}
-.kind{font:600 .72rem var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--rose-text);align-self:flex-start}
-.kind::before{content:"\2665 ";color:var(--pink-deep)}
-.card:nth-child(3n+2) .kind{color:var(--gold-text)}
-.card:nth-child(3n+2) .kind::before{content:"\2605 ";color:var(--yellow-deep)}
-.card h3{font:400 1.45rem/1.15 var(--hand);margin:0}
-.card h3 a{text-decoration:none;background:linear-gradient(transparent 70%,var(--pink) 70%)}
-.card:nth-child(3n+2) h3 a{background:linear-gradient(transparent 70%,var(--yellow) 70%)}
-.card h3 a:hover{background:linear-gradient(transparent 0,var(--pink) 0)}
-.card h3 a::after{content:" \2192"}
-.card p{margin:0;color:var(--muted);font-size:.94rem;flex:1}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.links a{font:400 1rem var(--hand);text-decoration:none;border:2px solid var(--pink-deep);border-radius:999px;padding:1px 13px;background:var(--paper);color:var(--rose-text)}
-.links a:hover{background:var(--pink)}
-footer{padding:48px 0 64px;color:var(--muted);font:600 1.3rem var(--note);text-align:center}
-footer::before{content:"";display:block;width:34px;height:34px;margin:0 auto 6px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 4c2 14 12 24 26 26-14 2-24 12-26 26-2-14-12-24-26-26 14-2 24-12 26-26z%22 fill=%22%23fff0b8%22 stroke=%22%23f1cd62%22 stroke-width=%222.5%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") center/contain no-repeat}
-@media (max-width:560px){header{padding-top:48px}header::before{width:56px;height:56px;top:20px}header::after{display:none}.card:nth-child(n){transform:none}}
-@media (prefers-reduced-motion:reduce){.card{transition:none}}
+:focus-visible{outline:3px solid var(--yellow-deep);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.top{background:var(--pink);border-bottom:1px solid var(--pink-deep)}
+header{padding:72px 0 30px}
+h1{font:500 clamp(2.4rem,6.4vw,4.4rem)/1.02 var(--serif);letter-spacing:-.015em;margin:0;max-width:14ch}
+.lead{margin:16px 0 34px;max-width:46ch;font-size:1.05rem;color:var(--muted)}
+.filters{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:baseline;border-top:1px solid var(--pink-deep);padding-top:18px}
+.filters dt{font:700 .72rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
+.filters dd{margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chip,.tag{font:500 .82rem var(--sans);border:1px solid transparent;border-radius:3px;cursor:pointer;line-height:1.2}
+.chip{padding:6px 11px}
+.tool{background:var(--yellow);color:var(--gold);border-color:var(--yellow-deep)}
+.topic{background:var(--paper);color:var(--rose);border-color:var(--pink-deep)}
+.chip:hover,.tag:hover{filter:brightness(.97);border-color:var(--rose)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.all{background:transparent;border-color:var(--ink);color:var(--ink)}
+.chip.all[aria-pressed=true]{background:var(--ink);color:#fff}
+.status{margin:0;padding:14px 0 0;font-size:.85rem;color:var(--muted);min-height:2.2em}
+main{padding:26px 0 40px}
+.group{margin-top:44px}
+h2{display:flex;align-items:baseline;gap:14px;font:500 1.7rem/1.1 var(--serif);margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+h2 .num{font:500 .8rem var(--sans);color:var(--rose);letter-spacing:.1em}
+h2 .count{margin-left:auto;font:400 .82rem var(--sans);color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px 22px;padding:0;margin:0;list-style:none}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s}
+.card:hover{border-color:var(--pink-deep)}
+.card[hidden],.group[hidden]{display:none}
+.thumb{display:block;aspect-ratio:4/3;background:var(--pink);border-bottom:1px solid var(--line);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .25s}
+.card:hover .thumb img{transform:scale(1.025)}
+.thumb.ph{display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;text-decoration:none}
+.thumb.ph span{font:500 1.5rem/1.15 var(--serif);color:var(--rose)}
+.group:nth-of-type(2) .thumb.ph{background:var(--yellow)}
+.group:nth-of-type(2) .thumb.ph span{color:var(--gold)}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.type{font:700 .68rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{padding:3px 8px;font-size:.74rem}
+h3{font:500 1.22rem/1.22 var(--serif);margin:2px 0 0}
+h3 a{text-decoration:none}
+h3 a:hover{text-decoration:underline;text-decoration-color:var(--pink-deep);text-decoration-thickness:2px;text-underline-offset:3px}
+.body p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:2px}
+.links a{font:500 .86rem var(--sans);color:var(--rose);text-decoration:underline;text-decoration-color:var(--pink-deep);text-underline-offset:3px}
+.links a::after{content:" \2197"}
+.links a:hover{text-decoration-color:var(--rose)}
+.empty{display:none;padding:40px 0;color:var(--muted)}
+footer{padding:20px 0 64px;color:var(--muted);font-size:.85rem}
+@media (max-width:560px){header{padding-top:48px}.filters{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="top"><div class="wrap">
 <header>
   <h1>Vania Wyanet Tumbelaka</h1>
   <p class="lead">Computer Science and Statistics student at BINUS University. A collection of my coursework and team projects.</p>
-  <ul class="tags"><li>Forecasting</li><li>Regression</li><li>Multivariate analysis</li><li>R</li><li>Python</li><li>Figma</li><li>Laravel</li></ul>
+  <dl class="filters" aria-label="Filter projects">
+    <dt>Show</dt><dd><button type="button" class="chip all" data-filter="all" aria-pressed="true">All</button></dd>
+    <dt>Tools</dt><dd><button type="button" class="chip tool" data-filter="laravel" aria-pressed="false">Laravel</button><button type="button" class="chip tool" data-filter="figma" aria-pressed="false">Figma</button><button type="button" class="chip tool" data-filter="python" aria-pressed="false">Python</button><button type="button" class="chip tool" data-filter="r" aria-pressed="false">R</button></dd>
+    <dt>Topics</dt><dd><button type="button" class="chip topic" data-filter="web-app" aria-pressed="false">Web app</button><button type="button" class="chip topic" data-filter="ui-ux" aria-pressed="false">UI/UX</button><button type="button" class="chip topic" data-filter="linear-algebra" aria-pressed="false">Linear algebra</button><button type="button" class="chip topic" data-filter="machine-learning" aria-pressed="false">Machine learning</button><button type="button" class="chip topic" data-filter="deep-learning" aria-pressed="false">Deep learning</button><button type="button" class="chip topic" data-filter="forecasting" aria-pressed="false">Forecasting</button><button type="button" class="chip topic" data-filter="regression" aria-pressed="false">Regression</button><button type="button" class="chip topic" data-filter="multivariate-analysis" aria-pressed="false">Multivariate analysis</button></dd>
+  </dl>
+  <p class="status" id="status" aria-live="polite"></p>
 </header>
-
+</div></div>
+<div class="wrap">
 <main>
-<h2 class="section">Research papers</h2>
+<section class="group">
+<h2><span class="num">01</span>Design and web projects<span class="count"></span></h2>
 <ul class="grid">
-  <li class="card"><a class="thumb" href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/air-quality-forecasting.jpg" alt="Preview of Forecasting Jakarta's Daily Air Quality" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Time-series forecasting</span>
-    <h3><a href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener">Forecasting Jakarta's Daily Air Quality</a></h3>
-    <p>ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.</p></li>
-  <li class="card"><a class="thumb" href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/robust-canonical-correlation.jpg" alt="Preview of Robust Canonical Correlation: Social Media Use and Self-Esteem" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Multivariate statistics</span>
-    <h3><a href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener">Robust Canonical Correlation: Social Media Use and Self-Esteem</a></h3>
-    <p>Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.</p></li>
-  <li class="card"><a class="thumb" href="papers/study-hours-regression.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/study-hours-regression.jpg" alt="Preview of Heteroskedasticity-Robust Regression on Students' Study Hours" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Regression analysis</span>
-    <h3><a href="papers/study-hours-regression.pdf" target="_blank" rel="noopener">Heteroskedasticity-Robust Regression on Students' Study Hours</a></h3>
-    <p>Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.</p></li>
-  <li class="card"><a class="thumb" href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/uk-road-accident-severity.jpg" alt="Preview of Road Accident Severity in the UK" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Categorical data analysis</span>
-    <h3><a href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener">Road Accident Severity in the UK</a></h3>
-    <p>Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.</p></li>
-  <li class="card"><a class="thumb" href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/maternal-health-risk-ml.jpg" alt="Preview of Machine Learning for Maternal Health Risk Prediction" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Machine learning</span>
-    <h3><a href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener">Machine Learning for Maternal Health Risk Prediction</a></h3>
-    <p>Group paper (Computational Biology) comparing nine classifiers on a public maternal health risk dataset, with exploratory analysis of blood pressure, blood sugar and class imbalance. Tree-based ensembles performed best.</p></li>
-  <li class="card"><a class="thumb" href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/online-shoppers-purchase-intention.jpg" alt="Preview of Predicting Online Shoppers' Purchase Intention in R" loading="lazy" width="640" height="480"></a>
-    <span class="kind">PDF · Data mining and visualization</span>
-    <h3><a href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener">Predicting Online Shoppers' Purchase Intention in R</a></h3>
-    <p>Exploratory analysis and six classifiers (decision tree, random forest, SVM, naive Bayes, KNN, logistic regression) on 12,330 shopping sessions, with business recommendations. Random forest was the most accurate at 90.4%.</p></li>
+  <li class="card" data-tags="laravel web-app">
+    <a class="thumb ph" href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>NyarisBaru</span></a>
+    <div class="body">
+      <div class="meta"><span class="type">GitHub</span><span class="tags"><button type="button" class="tag tool" data-filter="laravel">Laravel</button><button type="button" class="tag topic" data-filter="web-app">Web app</button></span></div>
+      <h3><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">NyarisBaru</a></h3>
+      <p>A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.</p>
+      <div class="links"><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">GitHub repository</a></div>
+    </div>
+  </li>
+  <li class="card" data-tags="figma ui-ux">
+    <a class="thumb ph" href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Pawfect</span></a>
+    <div class="body">
+      <div class="meta"><span class="type">Figma</span><span class="tags"><button type="button" class="tag tool" data-filter="figma">Figma</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button></span></div>
+      <h3><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Pawfect</a></h3>
+      <p>An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.</p>
+      <div class="links"><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/abgailhlm/Pawfect" target="_blank" rel="noopener">GitHub repository</a></div>
+    </div>
+  </li>
+  <li class="card" data-tags="figma ui-ux web-app">
+    <a class="thumb" href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/jci-drone-store.jpg" alt="Preview of JCI Drone Store" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">Figma + live site</span><span class="tags"><button type="button" class="tag tool" data-filter="figma">Figma</button><button type="button" class="tag topic" data-filter="ui-ux">UI/UX</button><button type="button" class="tag topic" data-filter="web-app">Web app</button></span></div>
+      <h3><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">JCI Drone Store</a></h3>
+      <p>A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.</p>
+      <div class="links"><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="jci/home.html" target="_blank" rel="noopener">Live website</a></div>
+    </div>
+  </li>
+  <li class="card" data-tags="python web-app linear-algebra">
+    <a class="thumb" href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/matrix-calculator-documentation.jpg" alt="Preview of Matrix Calculator" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF + Figma + GitHub</span><span class="tags"><button type="button" class="tag tool" data-filter="python">Python</button><button type="button" class="tag topic" data-filter="web-app">Web app</button><button type="button" class="tag topic" data-filter="linear-algebra">Linear algebra</button></span></div>
+      <h3><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Matrix Calculator</a></h3>
+      <p>A web app for linear algebra: diagonalization, LU decomposition (Crout&#x27;s method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.</p>
+      <div class="links"><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Documentation (PDF)</a><a href="https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/DavinTanaya/MatrixCalculator" target="_blank" rel="noopener">GitHub repository</a></div>
+    </div>
+  </li>
 </ul>
-
-<h2 class="section">Machine learning</h2>
+</section>
+<section class="group">
+<h2><span class="num">02</span>Machine learning<span class="count"></span></h2>
 <ul class="grid">
-  <li class="card"><a class="thumb ph" href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Student Depression Prediction</span></a>
-    <span class="kind">Group project · Machine learning</span>
-    <h3><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Student Depression Prediction</a></h3>
-    <p>Group machine learning project (Group 7, class LA06) built on the public Student Depression dataset from Kaggle. Delivered as a Colab notebook and a Canva poster.</p>
-    <div class="links"><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Colab notebook</a><a href="https://www.canva.com/design/DAGqCtZGcnM/I14SCtwnrMOp7cDT0feb3w/view" target="_blank" rel="noopener">Poster</a><a href="https://www.kaggle.com/datasets/hopesb/student-depression-dataset" target="_blank" rel="noopener">Dataset</a></div></li>
+  <li class="card" data-tags="machine-learning">
+    <a class="thumb ph" href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Student Depression Prediction</span></a>
+    <div class="body">
+      <div class="meta"><span class="type">Colab + poster</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button></span></div>
+      <h3><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Student Depression Prediction</a></h3>
+      <p>Group machine learning project (Group 7, class LA06) built on the public Student Depression dataset from Kaggle. Delivered as a Colab notebook and a Canva poster.</p>
+      <div class="links"><a href="https://colab.research.google.com/drive/14DKatRLR8w--82bxBSPIX4YCcQX7j5EF?usp=sharing" target="_blank" rel="noopener">Colab notebook</a><a href="https://www.canva.com/design/DAGqCtZGcnM/I14SCtwnrMOp7cDT0feb3w/view" target="_blank" rel="noopener">Poster</a><a href="https://www.kaggle.com/datasets/hopesb/student-depression-dataset" target="_blank" rel="noopener">Dataset</a></div>
+    </div>
+  </li>
+  <li class="card" data-tags="machine-learning python">
+    <a class="thumb" href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/maternal-health-risk-ml.jpg" alt="Preview of Machine Learning for Maternal Health Risk Prediction" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button><button type="button" class="tag tool" data-filter="python">Python</button></span></div>
+      <h3><a href="papers/maternal-health-risk-ml.pdf" target="_blank" rel="noopener">Machine Learning for Maternal Health Risk Prediction</a></h3>
+      <p>Group paper (Computational Biology) comparing nine classifiers on a public maternal health risk dataset, with exploratory analysis of blood pressure, blood sugar and class imbalance. Tree-based ensembles performed best.</p>
+      
+    </div>
+  </li>
+  <li class="card" data-tags="machine-learning r">
+    <a class="thumb" href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/online-shoppers-purchase-intention.jpg" alt="Preview of Predicting Online Shoppers&#x27; Purchase Intention in R" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="machine-learning">Machine learning</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
+      <h3><a href="papers/online-shoppers-purchase-intention.pdf" target="_blank" rel="noopener">Predicting Online Shoppers&#x27; Purchase Intention in R</a></h3>
+      <p>Exploratory analysis and six classifiers (decision tree, random forest, SVM, naive Bayes, KNN, logistic regression) on 12,330 shopping sessions, with business recommendations. Random forest was the most accurate at 90.4%.</p>
+      
+    </div>
+  </li>
 </ul>
-
-<h2 class="section">Design and web projects</h2>
+</section>
+<section class="group">
+<h2><span class="num">03</span>Research papers<span class="count"></span></h2>
 <ul class="grid">
-  <li class="card"><a class="thumb ph" href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>NyarisBaru</span></a>
-    <span class="kind">GitHub · Laravel web app</span>
-    <h3><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">NyarisBaru</a></h3>
-    <p>A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.</p>
-    <div class="links"><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">GitHub repository</a></div></li>
-  <li class="card"><a class="thumb ph" href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Pawfect</span></a>
-    <span class="kind">Figma · Requirements engineering</span>
-    <h3><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Pawfect</a></h3>
-    <p>An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.</p>
-    <div class="links"><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/abgailhlm/Pawfect" target="_blank" rel="noopener">GitHub repository</a></div></li>
-  <li class="card"><a class="thumb" href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/jci-drone-store.jpg" alt="Preview of JCI Drone Store" loading="lazy" width="640" height="480"></a>
-    <span class="kind">Figma · Human-computer interaction</span>
-    <h3><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">JCI Drone Store</a></h3>
-    <p>A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.</p>
-    <div class="links"><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="jci/home.html" target="_blank" rel="noopener">Live website</a></div></li>
-  <li class="card"><a class="thumb" href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/matrix-calculator-documentation.jpg" alt="Preview of Matrix Calculator" loading="lazy" width="640" height="480"></a>
-    <span class="kind">Documentation + Figma + GitHub · Linear algebra</span>
-    <h3><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Matrix Calculator</a></h3>
-    <p>A web app for linear algebra: diagonalization, LU decomposition (Crout's method), the power method and SVD. Client-server design with a FastAPI backend in a router, schema and service structure, using NumPy. The documentation covers usage, edge cases and checks against hand calculations.</p>
-    <div class="links"><a href="papers/matrix-calculator-documentation.pdf" target="_blank" rel="noopener">Documentation (PDF)</a><a href="https://www.figma.com/design/5Nb9PY4wmct03Qc5E9ImP0/Untitled?t=vjdZOUky3PIZleGl-1" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/DavinTanaya/MatrixCalculator" target="_blank" rel="noopener">GitHub repository</a></div></li>
+  <li class="card" data-tags="forecasting deep-learning python r">
+    <a class="thumb" href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/air-quality-forecasting.jpg" alt="Preview of Forecasting Jakarta&#x27;s Daily Air Quality" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="forecasting">Forecasting</button><button type="button" class="tag topic" data-filter="deep-learning">Deep learning</button><button type="button" class="tag tool" data-filter="python">Python</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
+      <h3><a href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener">Forecasting Jakarta&#x27;s Daily Air Quality</a></h3>
+      <p>ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.</p>
+      
+    </div>
+  </li>
+  <li class="card" data-tags="multivariate-analysis r">
+    <a class="thumb" href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/robust-canonical-correlation.jpg" alt="Preview of Robust Canonical Correlation: Social Media Use and Self-Esteem" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="multivariate-analysis">Multivariate analysis</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
+      <h3><a href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener">Robust Canonical Correlation: Social Media Use and Self-Esteem</a></h3>
+      <p>Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.</p>
+      
+    </div>
+  </li>
+  <li class="card" data-tags="regression r">
+    <a class="thumb" href="papers/study-hours-regression.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/study-hours-regression.jpg" alt="Preview of Heteroskedasticity-Robust Regression on Students&#x27; Study Hours" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="regression">Regression</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
+      <h3><a href="papers/study-hours-regression.pdf" target="_blank" rel="noopener">Heteroskedasticity-Robust Regression on Students&#x27; Study Hours</a></h3>
+      <p>Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.</p>
+      
+    </div>
+  </li>
+  <li class="card" data-tags="regression r">
+    <a class="thumb" href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener" tabindex="-1"><img src="thumbs/uk-road-accident-severity.jpg" alt="Preview of Road Accident Severity in the UK" loading="lazy" width="640" height="480"></a>
+    <div class="body">
+      <div class="meta"><span class="type">PDF</span><span class="tags"><button type="button" class="tag topic" data-filter="regression">Regression</button><button type="button" class="tag tool" data-filter="r">R</button></span></div>
+      <h3><a href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener">Road Accident Severity in the UK</a></h3>
+      <p>Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.</p>
+      
+    </div>
+  </li>
 </ul>
+</section>
+<p class="empty" id="empty">Nothing here yet.</p>
 </main>
-<footer>thanks for stopping by!</footer>
+<footer>Team projects are credited to their authors in each paper.</footer>
 </div>
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card')),
+      groups=[].slice.call(document.querySelectorAll('.group')),
+      chips=[].slice.call(document.querySelectorAll('.chip')),
+      status=document.getElementById('status'),
+      labels={};
+  chips.forEach(function(c){labels[c.dataset.filter]=c.textContent});
+  function apply(f){
+    var shown=0;
+    cards.forEach(function(c){
+      var ok=f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1;
+      c.hidden=!ok; if(ok)shown++;
+    });
+    groups.forEach(function(g){
+      var n=g.querySelectorAll('.card:not([hidden])').length;
+      g.hidden=n===0;
+      g.querySelector('.count').textContent=f==='all'?'':n+(n===1?' item':' items');
+    });
+    chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.filter===f))});
+    status.textContent=f==='all'?'Showing all '+cards.length+' items.':'Showing '+shown+' of '+cards.length+' tagged '+labels[f]+'.';
+    try{history.replaceState(null,'',f==='all'?location.pathname:'#'+f)}catch(e){}
+  }
+  function pick(f){
+    var cur=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true'})[0];
+    apply(cur&&cur.dataset.filter===f&&f!=='all'?'all':f);
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-filter]'); if(!b)return;
+    pick(b.dataset.filter);
+    if(b.classList.contains('tag'))document.querySelector('.top').scrollIntoView({behavior:'smooth'});
+  });
+  var h=location.hash.slice(1);
+  apply(labels[h]?h:'all');
+})();
+</script>
 </body>
 </html>
