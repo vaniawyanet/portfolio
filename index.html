@@ -33,6 +33,14 @@ a{color:inherit}
 .chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .chip.all{background:transparent;border-color:var(--ink);color:var(--ink)}
 .chip.all[aria-pressed=true]{background:var(--ink);color:#fff}
+.search{display:block;margin:0 0 22px}
+.search input{width:100%;max-width:420px;font:400 .95rem var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--pink-deep);border-radius:4px;padding:10px 14px}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:3px solid var(--yellow-deep);outline-offset:1px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.about .edu{margin-top:22px;padding-top:18px;border-top:1px solid var(--pink-deep)}
+.about .edu strong{display:block;font-weight:500}
+.about .edu span{color:var(--muted);font-size:.9rem}
 .hero{padding:64px 0 40px}
 .hero-grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center}
 h1{font:500 clamp(2.4rem,6vw,4.1rem)/1.04 var(--serif);letter-spacing:-.015em;margin:0 0 14px}
@@ -106,6 +114,7 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
   </div>
 </header>
 <section class="stackbar" id="projects"><div class="wrap">
+  <label class="search"><span class="sr">Search projects</span><input type="search" id="q" placeholder="Search projects, tools, topics" autocomplete="off"></label>
   <dl class="filters" aria-label="Filter projects">
     <dt>Browse</dt><dd><button type="button" class="chip all" data-filter="all" aria-pressed="true">All</button></dd>
     <dt>Tech stack</dt><dd><button type="button" class="chip tool" data-filter="laravel" aria-pressed="false">Laravel</button><button type="button" class="chip tool" data-filter="figma" aria-pressed="false">Figma</button><button type="button" class="chip tool" data-filter="python" aria-pressed="false">Python</button><button type="button" class="chip tool" data-filter="r" aria-pressed="false">R</button></dd>
@@ -236,6 +245,7 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
   <div>
     <h2>About</h2>
     <p>I'm a Computer Science and Statistics student at BINUS University. My coursework spans statistics, machine learning and web and interface design, and most of the work here was done in teams.</p>
+    <p class="edu"><strong>BINUS University</strong><span>Computer Science and Statistics</span></p>
   </div>
   <div>
     <h2>Experience</h2>
@@ -261,24 +271,30 @@ footer{padding:22px 0 48px;color:var(--muted);font-size:.85rem}
       status=document.getElementById('status'),
       labels={};
   chips.forEach(function(c){labels[c.dataset.filter]=c.textContent});
+  var qEl=document.getElementById('q'),cur='all';
+  cards.forEach(function(c){c.dataset.text=(c.textContent+' '+c.dataset.tags).toLowerCase()});
   function apply(f){
-    var shown=0;
+    cur=f;
+    var q=qEl.value.trim().toLowerCase(),shown=0;
     cards.forEach(function(c){
-      var ok=f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1;
+      var ok=(f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1)&&(!q||c.dataset.text.indexOf(q)>-1);
       c.hidden=!ok; if(ok)shown++;
     });
     groups.forEach(function(g){
       var n=g.querySelectorAll('.card:not([hidden])').length;
       g.hidden=n===0;
-      g.querySelector('.count').textContent=f==='all'?'':n+(n===1?' item':' items');
+      g.querySelector('.count').textContent=(f==='all'&&!q)?'':n+(n===1?' item':' items');
     });
     chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.filter===f))});
-    status.textContent=f==='all'?'Showing all '+cards.length+' items.':'Showing '+shown+' of '+cards.length+' tagged '+labels[f]+'.';
+    var t='Showing '+(f==='all'&&!q?'all '+cards.length:shown+' of '+cards.length)+' items';
+    if(f!=='all')t+=' tagged '+labels[f];
+    if(q)t+=' matching \u201c'+qEl.value.trim()+'\u201d';
+    status.textContent=shown?t+'.':'No projects match. Clear the search or pick another tag.';
     try{history.replaceState(null,'',f==='all'?location.pathname:'#'+f)}catch(e){}
   }
+  qEl.addEventListener('input',function(){apply(cur)});
   function pick(f){
-    var cur=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true'})[0];
-    apply(cur&&cur.dataset.filter===f&&f!=='all'?'all':f);
+    apply(cur===f&&f!=='all'?'all':f);
   }
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-filter]'); if(!b)return;
