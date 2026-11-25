@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JCI – Forum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="home.html" class="navbar-logo">
+      <img src="assets/images/logo.png" width="24" alt="JCI">
+      <div>JCI</div>
+  </a>
+
+  <div class="hamburger" id="hamburger">
+      &#9776;
+  </div>
+
+  <nav class="nav-links" id="navMenu">
+      <a href="home.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="forum.html">Forum</a>
+      <a href="store.html">Store</a>
+      <a href="contact.html">Contact Us</a>
+  </nav>
+</header>
+
+<section class="forum-wrap">
+    <div class="forum-header">
+    <h2>Community Forum</h2>
+    <p>Updates from JCI team and stories from verified users.</p>
+  </div>
+
+  <div class="forum-filter">
+    <button class="filter-btn forum-filter-btn active" data-category="all">All</button>
+    <button class="filter-btn forum-filter-btn" data-category="news">News</button>
+    <button class="filter-btn forum-filter-btn" data-category="tips">Tips</button>
+    <button class="filter-btn forum-filter-btn" data-category="story">Story</button>
+  </div>
+
+  <div class="forum-list">
+    <article class="forum-card news">
+      <div class="forum-title">JCI Firmware 2.2 Update Now Available</div>
+        <div class="forum-meta">
+        <span>@jciofficial</span>
+        <span class="badge">News</span>
+      </div>
+      <p class="forum-body">
+        We are rolling out a performance update for SkyVision and Falcon series.
+        Better flight stability in windy conditions, faster GPS lock-on,
+        and several bug fixes reported by the community. Update now through the JCI App.
+      </p>
+        <div class="forum-stats">
+        90 likes • 6k views • 32 shares
+        </div>
+    </article>
+
+    <article class="forum-card tips">
+      <div class="forum-title">New Safety Training: Fly Like a Pro</div>
+       <div class="forum-meta">
+        <span>@jciofficial</span>
+        <span class="badge">Education</span>
+      </div>
+      <p class="forum-body">
+        We launched a short online training for new pilot that covers battery health,
+        an emergency landing procedures, and how to plan safe routes in crowded areas.
+        Completing the course unlocks a small badge on your profile.
+      </p>
+       <div class="forum-stats">
+        55 likes • 5k views • 18 shares
+       </div>
+    </article>
+
+    <article class="forum-card story">
+      <div class="forum-title">My First Short Film with Falcon FPV S3!</div>
+       <div class="forum-meta">
+        <span>@janeabigail</span>
+        <span class="badge">User Story</span>
+      </div>
+      <p class="forum-body">
+        I finally finished my first short film using the Falcon FPV S3.
+        The real-time low-latency view made it easier to fly close to cliffs
+        while keeping the motion smooth. Sunrise shots looked amazing with the default profile.
+      </p>
+       <div class="forum-stats">
+        120 likes • 4.5k views • 40 shares
+       </div>
+    </article>
+
+    <article class="forum-card story">
+      <div class="forum-title">UrbanGuard T2 is a Beast in the City</div>
+       <div class="forum-meta">
+        <span>@kennyxt</span>
+        <span class="badge">Field Report</span>
+      </div>
+      <p class="forum-body">
+        Tested UrbanGuard T2 for a full week around Jakarta.
+        Obstacle sensors picked up narrow alleys, and the battery lasted longer than expected.
+        It handled night flights above traffic really well.
+      </p>
+        <div class="forum-stats">
+        80 likes • 2.3k views • 21 shares
+       </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  © 2025 JCI. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

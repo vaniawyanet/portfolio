@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vania Wyanet Tumbelaka Portfolio</title>
+<meta name="description" content="Portfolio of Vania Wyanet Tumbelaka, Computer Science and Statistics student at BINUS University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a card index. Each card opens its evidence directly (PDF, Figma, GitHub) in a new tab. */
+:root{
+  --bg:#f4f6f8;--surface:#ffffff;--ink:#14202e;--muted:#556577;--line:#d6dde5;--accent:#0b6b8a;--accent-soft:#dff0f6;
+  --display:'Sora',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1620;--surface:#15202c;--ink:#e6edf4;--muted:#9aabbc;--line:#27374a;--accent:#5ec0dd;--accent-soft:#16384a;color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 28px}
+h1{font:700 clamp(2rem,5vw,3rem)/1.1 var(--display);margin:0 0 12px;text-wrap:balance}
+.lead{max-width:62ch;color:var(--muted);margin:0 0 18px;font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{font:500 .8rem var(--mono);background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:999px}
+h2.section{font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;padding:0;margin:0;list-style:none}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.card:hover{border-color:var(--accent)}
+.kind{font:500 .75rem var(--mono);color:var(--accent)}
+.card h3{font:600 1.08rem/1.3 var(--display);margin:0}
+.card h3 a{text-decoration:none}
+.card h3 a::after{content:" \2197";color:var(--accent)}
+.card p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{font:500 .78rem var(--mono);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:5px 9px}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+footer{padding:36px 0 56px;color:var(--muted);font-size:.88rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Vania Wyanet Tumbelaka</h1>
+  <p class="lead">Computer Science and Statistics student at BINUS University. I build statistical and machine-learning models on survey and time-series data, and design the interfaces around them. Pick a project below; each one opens its paper, design or code in a new tab.</p>
+  <ul class="tags"><li>Forecasting</li><li>Regression</li><li>Multivariate analysis</li><li>R</li><li>Python</li><li>Figma</li></ul>
+</header>
+
+<main>
+<h2 class="section">Research papers</h2>
+<ul class="grid">
+  <li class="card"><span class="kind">PDF · Time-series forecasting</span>
+    <h3><a href="papers/air-quality-forecasting.pdf" target="_blank" rel="noopener">Forecasting Jakarta's Daily Air Quality</a></h3>
+    <p>ARIMA, SARIMA and ETS against LSTM and GRU on 1,282 daily observations. LSTM cut test RMSE by 39.2% against the best statistical model.</p></li>
+  <li class="card"><span class="kind">PDF · Multivariate statistics</span>
+    <h3><a href="papers/robust-canonical-correlation.pdf" target="_blank" rel="noopener">Robust Canonical Correlation: Social Media Use and Self-Esteem</a></h3>
+    <p>Survey of 104 students. Robust CCA found a first canonical correlation of 0.818 against 0.560 for the classical method.</p></li>
+  <li class="card"><span class="kind">PDF · Regression analysis</span>
+    <h3><a href="papers/study-hours-regression.pdf" target="_blank" rel="noopener">Heteroskedasticity-Robust Regression on Students' Study Hours</a></h3>
+    <p>Survey of 45 undergraduates. OLS with HC3 standard errors was the most dependable estimator, and organisation hours was the strongest predictor.</p></li>
+  <li class="card"><span class="kind">PDF · Categorical data analysis</span>
+    <h3><a href="papers/uk-road-accident-severity.pdf" target="_blank" rel="noopener">Road Accident Severity in the UK</a></h3>
+    <p>Ordinal logistic regression on 2022 collision data. 85.83% accuracy, and roundabouts lowered the odds of a fatal outcome.</p></li>
+</ul>
+
+<h2 class="section">Design and web projects</h2>
+<ul class="grid">
+  <li class="card"><span class="kind">GitHub · Web programming</span>
+    <h3><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">NyarisBaru</a></h3>
+    <p>A Laravel marketplace for second-hand goods with a Trusted Seller badge, forum, wishlist and escrow-style payment, built from a survey of 21 users.</p>
+    <div class="links"><a href="https://github.com/Ivanajoy2207/nyarisbaru" target="_blank" rel="noopener">GitHub repository</a></div></li>
+  <li class="card"><span class="kind">Figma · Requirements engineering</span>
+    <h3><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Pawfect</a></h3>
+    <p>An all-in-one pet care platform that grew from 3–4 planned modules to 12. A case study of scope creep, using UML and a Figma prototype.</p>
+    <div class="links"><a href="https://www.figma.com/design/m0a8rwENJTh0Q1DbBORzYl/AOL-HCI-Kelompok-2?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="https://github.com/abgailhlm/Pawfect" target="_blank" rel="noopener">GitHub repository</a></div></li>
+  <li class="card"><span class="kind">Figma · Human-computer interaction</span>
+    <h3><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">JCI Drone Store</a></h3>
+    <p>A drone store designed in Figma, then built as a multi-page website in HTML, CSS and JavaScript.</p>
+    <div class="links"><a href="https://www.figma.com/design/RWEUtvVzAWXgzIhn8sIrP1/HCI-LAB?m=auto&amp;t=9YQl2xW93F2stTyJ-6" target="_blank" rel="noopener">Figma design</a><a href="jci/home.html" target="_blank" rel="noopener">Live website</a></div></li>
+</ul>
+</main>
+<footer>Team projects are credited to their authors in each paper.</footer>
+</div>
+</body>
+</html>
