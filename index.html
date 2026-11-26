@@ -143,6 +143,7 @@
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-muted" aria-label="Primary">
         <a href="#projects" class="hover:text-rose transition-colors">Projects</a>
+        <a href="#achievements" class="hover:text-rose transition-colors">Achievements</a>
         <a href="#skills" class="hover:text-rose transition-colors">Skills</a>
         <a href="#about" class="hover:text-rose transition-colors">About &amp; Experience</a>
         <a href="#contact" class="hover:text-rose transition-colors">Contact</a>
@@ -186,6 +187,7 @@
       class="md:hidden bg-paper border-b border-line px-5 py-4 space-y-2 shadow-soft"
     >
       <a href="#projects" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Projects</a>
+      <a href="#achievements" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Achievements</a>
       <a href="#skills" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Skills</a>
       <a href="#about" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">About &amp; Experience</a>
       <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 text-sm font-medium text-ink hover:text-rose">Contact</a>
@@ -247,6 +249,9 @@
         <ul class="flex flex-wrap gap-2.5" aria-label="Tools I use">
           <li class="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-xl bg-paper border border-line text-xs font-medium text-ink shadow-sm hover:border-blush-deep hover:-translate-y-0.5 transition-all">
             <svg viewBox="0 0 24 24" class="w-4 h-4 text-rose" fill="currentColor" aria-hidden="true"><path d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/></svg>Python
+          </li>
+          <li class="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-xl bg-paper border border-line text-xs font-medium text-ink shadow-sm hover:border-blush-deep hover:-translate-y-0.5 transition-all">
+            <svg viewBox="0 0 24 24" class="w-4 h-4 text-rose" fill="currentColor" aria-hidden="true"><path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"/></svg>C++
           </li>
           <li class="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-xl bg-paper border border-line text-xs font-medium text-ink shadow-sm hover:border-blush-deep hover:-translate-y-0.5 transition-all">
             <svg viewBox="0 0 24 24" class="w-4 h-4 text-rose" fill="currentColor" aria-hidden="true"><path d="M12 2.746c-6.627 0-12 3.599-12 8.037 0 3.897 4.144 7.144 9.64 7.88V16.26c-2.924-.915-4.925-2.755-4.925-4.877 0-3.035 4.084-5.494 9.12-5.494 5.038 0 8.757 1.683 8.757 5.494 0 1.976-.999 3.379-2.662 4.272.09.066.174.128.258.216.169.149.25.363.372.544 2.128-1.45 3.44-3.437 3.44-5.631 0-4.44-5.373-8.038-12-8.038zm-2.111 4.99v13.516l4.093-.002-.002-5.291h1.1c.225 0 .321.066.549.25.272.22.715.982.715.982l2.164 4.063 4.627-.002-2.864-4.826s-.086-.193-.265-.383a2.22 2.22 0 00-.582-.416c-.422-.214-1.149-.434-1.149-.434s3.578-.264 3.578-3.826c0-3.562-3.744-3.63-3.744-3.63zm4.127 2.93l2.478.002s1.149-.062 1.149 1.127c0 1.165-1.149 1.17-1.149 1.17h-2.478zm1.754 6.119c-.494.049-1.012.079-1.54.088v1.807a16.622 16.622 0 002.37-.473l-.471-.891s-.108-.183-.248-.394c-.039-.054-.08-.098-.111-.137z"/></svg>R
@@ -462,6 +467,29 @@
     </div>
   </section>
 
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+    <div class="max-w-2xl mb-10" data-aos="fade-up">
+      <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose mb-2">Recognition</p>
+      <h2 class="font-serif font-medium text-3xl sm:text-4xl text-ink tracking-tight mb-3">Achievements</h2>
+    </div>
+    <article class="grid md:grid-cols-5 gap-0 rounded-2xl bg-paper border border-line overflow-hidden hover:border-blush-deep transition-colors" data-aos="fade-up">
+      <a href="certificates/icpc-inc-2025-honor-team.pdf" target="_blank" rel="noopener noreferrer" class="md:col-span-2 block bg-cream border-b md:border-b-0 md:border-r border-line">
+        <img src="thumbs/icpc-honor.jpg" alt="ICPC Indonesia National Contest 2025 Honor certificate" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <div class="md:col-span-3 p-6 sm:p-8 flex flex-col justify-center">
+        <span class="self-start px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep mb-4">Honor</span>
+        <h3 class="font-serif text-2xl font-medium text-ink mb-2">ICPC Asia Jakarta, Indonesia National Contest 2025</h3>
+        <p class="text-sm text-muted mb-1">BINUS University · 25–26 October 2025</p>
+        <p class="text-sm text-muted mb-5">Competitive programming contest, team of three.</p>
+        <div class="flex flex-wrap gap-x-5 gap-y-2">
+          <a href="certificates/icpc-inc-2025-honor-team.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-rose hover:text-ink underline decoration-blush-deep underline-offset-4 transition-colors">Team certificate <span aria-hidden="true">↗</span></a>
+          <a href="certificates/icpc-inc-2025-honor-personal.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-rose hover:text-ink underline decoration-blush-deep underline-offset-4 transition-colors">Personal certificate <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
   <!-- SKILLS -->
   <section id="skills" class="bg-paper border-y border-line">
     <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
@@ -489,11 +517,11 @@
         </div>
         <div class="rounded-2xl bg-cream border border-line p-6 hover:border-blush-deep transition-colors" data-aos="fade-up" data-aos-delay="190">
           <div class="w-10 h-10 rounded-xl bg-blush border border-blush-deep text-rose flex items-center justify-center mb-4"><i data-lucide="layout-template" class="w-5 h-5"></i></div>
-          <h3 class="font-serif text-xl font-medium text-ink mb-3">Web and design</h3>
+          <h3 class="font-serif text-xl font-medium text-ink mb-3">Software and design</h3>
           <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-muted mb-2">Tools</p>
-          <div class="flex flex-wrap gap-1.5 mb-4 last:mb-0"><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Figma</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Laravel</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">HTML, CSS, JavaScript</span></div>
+          <div class="flex flex-wrap gap-1.5 mb-4 last:mb-0"><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Figma</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">Laravel</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">C++</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-butter text-gold border border-butter-deep">HTML, CSS, JavaScript</span></div>
           <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-muted mb-2">Methods</p>
-          <div class="flex flex-wrap gap-1.5 mb-4 last:mb-0"><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">UML</span></div>
+          <div class="flex flex-wrap gap-1.5 mb-4 last:mb-0"><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">UML</span><span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-paper text-rose border border-blush-deep">Competitive programming</span></div>
         </div>
       </div>
       <div class="mt-6 rounded-2xl bg-cream border border-line p-6 hover:border-blush-deep transition-colors" data-aos="fade-up">
